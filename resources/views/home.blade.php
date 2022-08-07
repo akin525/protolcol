@@ -14,7 +14,7 @@
     <meta name="keywords" content="laravel admin template, bootstrap admin template, admin dashboard template, admin dashboard, admin template, admin, bootstrap 5, laravel admin, laravel admin dashboard template, laravel ui template, laravel admin panel, admin panel, laravel admin dashboard, laravel template, admin ui dashboard">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/favicon.ico')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('pop.png')}}" />
 
     <!-- TITLE -->
     <title>Protocol Cheap Data</title>
@@ -108,7 +108,7 @@
 </div>
 <!-- End Switcher -->
 
-<a href="javascript:void(0);" class="buy-now">Buy Now</a>
+{{--<a href="javascript:void(0);" class="buy-now">Buy Now</a>--}}
 
 <!-- GLOBAL-LOADER -->
 <div id="global-loader">
@@ -127,8 +127,8 @@
                     <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
                     <!-- sidebar-toggle-->
                     <a class="logo-horizontal " href="#">
-                        <img src="assets/images/protocol%20logo.png" class="header-brand-img desktop-logo" alt="logo">
-                        <img src="assets/images/protocol%20logo.png" class="header-brand-img light-logo1" alt="logo">
+                        <img src="{{asset('pop.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                        <img src="{{asset('pop.png')}}" class="header-brand-img light-logo1" alt="logo">
                     </a>
                     <!-- LOGO -->
 
@@ -477,169 +477,103 @@
                                                         <div class="tab-content">
                                                             <div class="tab-pane pb-0 active show" id="year">
                                                                 <div class="row d-flex align-items-center justify-content-center">
-                                                                    <div class="col-lg-4 col-sm-8">
-                                                                        <div class="card p-3 pricing-card">
+                                                                    <div class="col-lg-3 col-sm-8">
+                                                                        <div class="card p-3 border-primary pricing-card advanced">
                                                                             <div class="card-header d-block text-justified pt-2">
                                                                                 <p class="text-18 font-weight-semibold mb-1">MTN DATA</p>
-                                                                                <img class="img-fluid" src="assets/images/mtn%20logo.png"  alt="">
+                                                                                <center>
+                                                                                <img class="img-fluid" width="150" src="{{asset('assets/images/mtn%20logo.png')}}"  alt="">
+                                                                                </center>
                                                                             </div>
-                                                                            <div class="card-body pt-2">
+                                                                            <div class="card-body ">
                                                                                 <ul class="text-justify pricing-body ps-0">
+                                                                                    @foreach($mtn as $m)
                                                                                     <li class="mb-4"><span
                                                                                             class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 5 Free</strong>
-                                                                                        Domain Name</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong>5 </strong>
-                                                                                        One-Click Apps</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 3 </strong>
-                                                                                        Databases</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> Unlimited
-                                                                                        </strong> Cloud Storage</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> Money </strong>
-                                                                                        BackGuarantee</li>
-                                                                                    <li class="mb-6"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 24/7</strong>
-                                                                                        support</li>
+                                                                                                class="fa fa-check"></i></span> <strong>{{$m->plan}}</strong>
+                                                                                        ₦{{$m->tamount}}</li>
+                                                                                    @endforeach
                                                                                 </ul>
                                                                             </div>
                                                                             <div class="card-footer text-center border-top-0 pt-1">
-                                                                                <button class="btn btn-lg btn-outline-warning btn-block">
-                                                                                    <span class="ms-4 me-4">Select</span>
+                                                                                <button type="button" onclick="window.location='{{route('select')}}';" class="btn btn-lg btn-outline-warning btn-block">
+                                                                                    <span class="ms-4 me-4">Buy Now</span>
                                                                                 </button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-4 col-sm-8">
-                                                                        <div class="card p-3 pricing-card">
+                                                                    <div class="col-lg-3 col-sm-8">
+                                                                        <div class="card p-3 border-primary pricing-card advanced">
                                                                             <div class="card-header d-block text-justified pt-2">
                                                                                 <p class="text-18 font-weight-semibold mb-1">GLO DATA</p>
-                                                                                <img class="img-fluid" src="assets/images/Glon.png" alt="">
+                                                                                <center>
+                                                                                <img class="img-fluid" width="150" src="{{asset('assets/images/Glon.png')}}" alt="">
+                                                                                </center>
                                                                             </div>
-                                                                            <div class="card-body pt-2">
+                                                                            <div class="card-body pt-4">
                                                                                 <ul class="text-justify pricing-body ps-0">
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 5 Free</strong>
-                                                                                        Domain Name</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong>5 </strong>
-                                                                                        One-Click Apps</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 3 </strong>
-                                                                                        Databases</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> Unlimited
-                                                                                        </strong> Cloud Storage</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> Money </strong>
-                                                                                        BackGuarantee</li>
-                                                                                    <li class="mb-6"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 24/7</strong>
-                                                                                        support</li>
+                                                                                    @foreach($glo as $g)
+                                                                                        <li class="mb-4"><span
+                                                                                                class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
+                                                                                                    class="fa fa-check"></i></span> <strong>{{$g->plan}}</strong>
+                                                                                            </li>
+                                                                                    @endforeach
                                                                                 </ul>
                                                                             </div>
                                                                             <div class="card-footer text-center border-top-0 pt-1">
-                                                                                <button class="btn btn-lg btn-outline-info btn-block">
-                                                                                    <span class="ms-4 me-4">Select</span>
+                                                                                <button type="button" onclick="window.location='{{route('select')}}';" class="btn btn-lg btn-outline-info btn-block">
+                                                                                    <span class="ms-4 me-4">Buy Now</span>
                                                                                 </button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-4 col-sm-8">
+                                                                    <div class="col-lg-3 col-sm-8">
                                                                         <div class="card p-3 border-primary pricing-card advanced">
                                                                             <div class="card-header d-block text-justified pt-2">
                                                                                 <p class="text-18 font-weight-semibold mb-1">AIRTEL DATA</p>
-                                                                                <img class="img-fluid" src="assets/images/airtel.png" alt="">
+                                                                                <center>
+                                                                                <img class="img-fluid" width="150" src="{{asset('assets/images/airtel.png')}}" alt="">
+                                                                                </center>
                                                                             </div>
                                                                             <div class="card-body pt-2">
                                                                                 <ul class="text-justify pricing-body ps-0">
+                                                                                    @foreach($airtel as $g)
                                                                                     <li class="mb-4"><span
                                                                                             class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 5 Free</strong>
-                                                                                        Domain Name</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong>5 </strong>
-                                                                                        One-Click Apps</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 3 </strong>
-                                                                                        Databases</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> Unlimited
-                                                                                        </strong> Cloud Storage</li>
-                                                                                    <li class="mb-4"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> Money </strong>
-                                                                                        BackGuarantee</li>
-                                                                                    <li class="mb-6"><span
-                                                                                            class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                                class="fa fa-check"></i></span> <strong> 24/7</strong>
-                                                                                        support</li>
+                                                                                                class="fa fa-check"></i></span> <strong> {{$g->plan}} </strong>
+                                                                                        ₦{{$g->tamount}}</li>
+                                                                                    @endforeach
                                                                                 </ul>
                                                                             </div>
                                                                             <div class="card-footer text-center border-top-0 pt-1">
-                                                                                <button class="btn btn-lg btn-primary text-white btn-block">
-                                                                                    <span class="ms-4 me-4">Select</span>
+                                                                                <button type="button" onclick="window.location='{{route('select')}}';" class="btn btn-lg btn-primary text-white btn-block">
+                                                                                    <span class="ms-4 me-4">Buy Now</span>
                                                                                 </button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="col-lg-4 col-sm-8">
+                                                            <div class="col-lg-3 col-sm-8">
                                                                 <div class="card p-3 border-primary pricing-card advanced">
                                                                     <div class="card-header d-block text-justified pt-2">
                                                                         <p class="text-18 font-weight-semibold mb-1">9MOBILE DATA</p>
-                                                                        <img class="img-fluid" src="assets/images/9mobile.jpg" alt="">
+                                                                        <center>
+                                                                        <img class="img-fluid" width="150" src="{{asset('assets/images/9mobile.jpg')}}" alt="">
+                                                                        </center>
                                                                     </div>
                                                                     <div class="card-body pt-2">
                                                                         <ul class="text-justify pricing-body ps-0">
-                                                                            <li class="mb-4"><span
-                                                                                    class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
-                                                                                        class="fa fa-check"></i></span> <strong> 5 Free</strong>
-                                                                                Domain Name</li>
-                                                                            <li class="mb-4"><span
-                                                                                    class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                        class="fa fa-check"></i></span> <strong>5 </strong>
-                                                                                One-Click Apps</li>
-                                                                            <li class="mb-4"><span
-                                                                                    class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                        class="fa fa-check"></i></span> <strong> 3 </strong>
-                                                                                Databases</li>
-                                                                            <li class="mb-4"><span
-                                                                                    class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                        class="fa fa-check"></i></span> <strong> Unlimited
-                                                                                </strong> Cloud Storage</li>
-                                                                            <li class="mb-4"><span
-                                                                                    class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                        class="fa fa-check"></i></span> <strong> Money </strong>
-                                                                                BackGuarantee</li>
-                                                                            <li class="mb-6"><span
-                                                                                    class="text-primary me-2 p-1 bg-primary-transparent  rounded-pill text-10-f"><i
-                                                                                        class="fa fa-check"></i></span> <strong> 24/7</strong>
-                                                                                support</li>
+                                                                            @foreach($eti as $e)
+                                                                                <li class="mb-4"><span
+                                                                                        class="text-primary me-2 p-1 bg-primary-transparent rounded-pill text-10-f"><i
+                                                                                            class="fa fa-check"></i></span> <strong> {{$e->plan}} </strong>
+                                                                                   </li>
+                                                                            @endforeach
                                                                         </ul>
                                                                     </div>
                                                                     <div class="card-footer text-center border-top-0 pt-1">
-                                                                        <button class="btn btn-lg btn-primary text-white btn-block">
-                                                                            <span class="ms-4 me-4">Select</span>
+                                                                        <button type="button" onclick="window.location='{{route('select')}}';" class="btn btn-lg btn-primary text-white btn-block">
+                                                                            <span class="ms-4 me-4">Buy Now</span>
                                                                         </button>
                                                                     </div>
                                                                 </div>
@@ -1003,18 +937,18 @@ The owner of PROTOCOL CHEAP DATA</span>
 <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
 <!-- JQUERY JS -->
-<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 
 <!-- BOOTSTRAP JS -->
-<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
+<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
 
 <!-- Owl carousel JS -->
-<script src="assets/plugins/company-slider/slider.js"></script>
-<script src="assets/plugins/owl-carousel/owl.carousel.js"></script>
+<script src="{{asset('assets/plugins/company-slider/slider.js')}}"></script>
+<script src="{{asset('assets/plugins/owl-carousel/owl.carousel.js')}}"></script>
 
 <!-- landing JS -->
-<script src="assets/js/landing.js"></script>
+<script src="{{asset('assets/js/landing.js')}}"></script>
 
 </body>
 
