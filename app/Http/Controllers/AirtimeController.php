@@ -70,7 +70,7 @@ class AirtimeController
                     CURLOPT_POSTFIELDS => array('service' => 'airtime', 'coded' => $request->id, 'phone' => $request->number, 'amount' => $request->amount, 'reseller_price' => $request->amount),
 
                     CURLOPT_HTTPHEADER => array(
-                        'Authorization: MCDKEY_903sfjfi0ad833mk8537dhc03kbs120r0h9a'
+                        'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                     )));
 
                 $response = curl_exec($curl);

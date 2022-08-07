@@ -78,7 +78,7 @@ class McdController
                             CURLOPT_CUSTOMREQUEST => 'POST',
                             CURLOPT_POSTFIELDS => array('service' => 'data', 'coded' => 'MTN1GB', 'phone' => '081602452854'),
                             CURLOPT_HTTPHEADER => array(
-                                'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                                'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                             )));
 
                         $response = curl_exec($curl);

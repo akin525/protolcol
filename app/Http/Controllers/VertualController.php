@@ -11,6 +11,7 @@ use App\Models\setting;
 use App\Models\wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -35,9 +36,9 @@ class VertualController
                 CURLOPT_SSL_VERIFYHOST => 0,
                 CURLOPT_SSL_VERIFYPEER => 0,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => array('account_name' => $user->username, 'business_short_name' => 'PRIMEDATA', 'uniqueid' => $user->name, 'email' => $user->email, 'phone' => '08146328645', 'webhook_url' => 'https://mobile.primedata.com.ng/api/run',),
+                CURLOPT_POSTFIELDS => array('account_name' => $user->username, 'business_short_name' => 'PROTOCOLCHEAPDATA', 'uniqueid' => $user->name, 'email' => $user->email, 'phone' => '08146328645', 'webhook_url' => 'https://protocolcheapdata.com.ng/api/run',),
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                    'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                 ),
             ));
 
@@ -56,7 +57,8 @@ class VertualController
             $wallet->account_name = $account;
             $wallet->save();
 
-            return redirect("dashboard")->withSuccess('You are not allowed to access');
+            Alert::success('Succeaa', 'Virtual Account Successful Created');
+            return redirect("dashboard")->with('success', 'You are not allowed to access');
 
 
         }
@@ -121,7 +123,7 @@ class VertualController
                 $user = user::where('username', $wallet->username)->first();
 
                 $receiver = $user->email;
-                Mail::to($receiver)->send(new Emailfund($deposit));
+//                Mail::to($receiver)->send(new Emailfund($deposit));
 
             }
 

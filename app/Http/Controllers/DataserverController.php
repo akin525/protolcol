@@ -68,10 +68,10 @@ class DataserverController extends Controller
                     CURLOPT_FOLLOWLOCATION => true,
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => 'POST',
-                   CURLOPT_POSTFIELDS => array('service' => 'data','coded' => $request->cat_id,'phone' => $request->number),
+                   CURLOPT_POSTFIELDS => array('service' => 'data','coded' => $request->cat_id,'phone' => $request->number, 'reseller_price' => $request->tamount),
 
                          CURLOPT_HTTPHEADER => array(
-                             'Authorization: MCDKEY_903sfjfi0ad833mk8537dhc03kbs120r0h9a'
+                             'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                          )));
 
 

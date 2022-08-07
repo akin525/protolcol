@@ -78,7 +78,7 @@ public function dashboard(Request $request)
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array('service' => 'balance'),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
             ),
         ));
 
@@ -129,7 +129,7 @@ public function mcdtran()
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array('service' => 'transactions'),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
             ),
         ));
 
