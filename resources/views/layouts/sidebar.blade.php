@@ -218,7 +218,7 @@
                             </a>
                         </li>
                         <li class="slide">
-                            <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                            <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('profile.show') }}">
                                 <i class="side-menu__icon mdi mdi-account"></i>
                                 <span class="side-menu__label">My Account</span>
                             </a>

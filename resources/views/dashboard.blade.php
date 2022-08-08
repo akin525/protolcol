@@ -36,6 +36,7 @@
                     <span class="alert-inner--icon me-2"><i class="fe fe-info"></i></span>
                     <strong>Notification:</strong>
                 </p>
+                <center>
                 <p class="py-3 px-5">
                     @foreach($wallet as $wallet1)
                         @if ($wallet1->account_number==1 && $wallet1->account_name==1)
@@ -48,6 +49,7 @@
                 @endforeach
 
                     </p>
+                </center>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -142,8 +144,8 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <div id="data-table_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="data-table_length"><label><select name="data-table_length" aria-controls="data-table" class="form-select form-select-sm select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 166.766px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-data-table_length-k7-container"><span class="select2-selection__rendered" id="select2-data-table_length-k7-container" title="10">10</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></label></div></div><div class="col-sm-12 col-md-6"><div id="data-table_filter" class="dataTables_filter"><label><input type="search" class="form-control form-control-sm" placeholder="Search..." aria-controls="data-table"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="data-table" class="table text-nowrap mb-0 table-bordered dataTable no-footer" role="grid" aria-describedby="data-table_info">
-                                            <thead class="table-head">
+                            <table class="table table-bordered text-nowrap border-bottom w-100" id="responsive-datatable">
+                                <thead>
                                             <tr role="row">
                                                 <th class="bg-transparent border-bottom-0 wp-15 sorting sorting_asc" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Assigned To: activate to sort column descending" style="width: 145px;">Username</th>
                                                 <th class="bg-transparent border-bottom-0 sorting" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="Task: activate to sort column ascending" style="width: 239.906px;">Plan</th>
@@ -177,4 +179,19 @@
         </div>
     </div>
 </div>
+
+<!-- DATA TABLE JS-->
+<script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+<script src="assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+<script src="assets/plugins/datatable/js/jszip.min.js"></script>
+<script src="assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+<script src="assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+<script src="assets/plugins/datatable/js/buttons.html5.min.js"></script>
+<script src="assets/plugins/datatable/js/buttons.print.min.js"></script>
+<script src="assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+<script src="assets/plugins/datatable/dataTables.responsive.min.js"></script>
+<script src="assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+<script src="assets/js/table-data.js"></script>
 @include('layouts.footer')
