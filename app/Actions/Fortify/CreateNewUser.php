@@ -49,7 +49,7 @@ class CreateNewUser implements CreatesNewUsers
                 'balance' => 0,
             ]);
             $receiver=$input ['email'];
-            $admin= 'info@.protocolcheapdata.com.ng';
+            $admin= 'info@protocolcheapdata.com.ng';
             Mail::to($receiver)->send(new Emailotp($input));
             Mail::to($admin)->send(new Emailotp($input));
 
