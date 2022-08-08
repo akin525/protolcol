@@ -37,7 +37,7 @@
     <link href="{{asset('assets/switcher/demo.css')}}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
 {{--    <link rel="stylesheet" href="{{ mix('css/app.css') }}">--}}
-    @livewireStyles
+
 
     <!-- Scripts -->
 {{--    <script src="{{ mix('js/app.js') }}" defer></script>--}}
@@ -253,8 +253,30 @@
                 </div>
             </div>
         </div>
-        <!--/APP-SIDEBAR-->
+        <style>
+            .float{
+                position:fixed;
+                width:60px;
+                height:60px;
+                bottom:40px;
+                left:40px;
+                background-color:#25d366;
+                color:#FFF;
+                border-radius:50px;
+                text-align:center;
+                font-size:30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index:100;
+            }
 
+            .my-float{
+                margin-top:16px;
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <a href="http://wa.me/2349061123233" class="float" target="_blank">
+            <i class="fa fa-whatsapp my-float"></i>
+        </a>
         @include('sweetalert::alert')
 <!-- BACK-TO-TOP -->
 <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
