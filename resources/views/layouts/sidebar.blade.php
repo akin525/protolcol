@@ -111,12 +111,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- COUNTRY -->
-                                    <div class="dropdown d-md-flex main-header-notification flag-dropdown">
-                                        <a class="nav-link icon text-center country-nav-link" data-bs-target="#country-selector" data-bs-toggle="modal">
-                                            <img class="header-icons language" alt="" src="{{asset('pop.png')}}">
-                                        </a>
-                                    </div>
                                     <!-- SEARCH -->
                                     <div class="dropdown  d-flex">
                                         <a class="nav-link icon theme-layout nav-link-bg layout-setting">
@@ -138,11 +132,11 @@
                                     <div class="dropdown d-md-flex profile-1">
                                         <a href="#" data-bs-toggle="dropdown" class="nav-link pe-2 leading-none d-flex animate">
 												<span>
-													<img src="{{asset('pop.png')}}g" alt="profile-user"
+													<img src="{{asset('pop.png')}}" alt="profile-user"
                                                          class="avatar  profile-user brround cover-image">
 												</span>
                                             <div class="text-center p-1 d-flex d-lg-none-max">
-                                                <h6 class="mb-0" id="profile-heading">Elena<i class="user-angle ms-1 fa fa-angle-down "></i></h6>
+                                                <h6 class="mb-0" id="profile-heading">{{Auth::user()->name}}<i class="user-angle ms-1 fa fa-angle-down "></i></h6>
                                             </div>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
