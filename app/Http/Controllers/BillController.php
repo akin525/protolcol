@@ -157,6 +157,7 @@ class BillController extends Controller
                             'result' => $success,
                             'phone' => $request->number,
                             'refid' => $request->id,
+                            'balance'=>$gt,
                         ]);
 
                         $profit = profit::create([
