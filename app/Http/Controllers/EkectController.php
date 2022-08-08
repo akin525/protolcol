@@ -190,12 +190,9 @@ class EkectController
                     $ph = $request->number."| Token:".$tran2;
 
                     $receiver = $user->email;
-                    $admin = 'admin@primedata.com.ng';
-                    $admin1 = 'primedata18@gmail.com';
-
+                    $admin = 'info@protocolcheapdata.com.ng';
                     Mail::to($receiver)->send(new Emailtrans($bo));
                     Mail::to($admin)->send(new Emailtrans($bo));
-                    Mail::to($admin1)->send(new Emailtrans($bo));
 
                     return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
 

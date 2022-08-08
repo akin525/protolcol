@@ -218,10 +218,10 @@ $tv=data::where('network', $request->id)->get();
                         $ph = $request->number;
 
                         $receiver = $user->email;
-                        $admin = 'admin@primedata.com.ng';
+                        $admin = 'info@protocolcheapdata.com.ng';
 
-//                        Mail::to($receiver)->send(new Emailtrans($bo));
-//                        Mail::to($admin)->send(new Emailtrans($bo));
+                        Mail::to($receiver)->send(new Emailtrans($bo));
+                        Mail::to($admin)->send(new Emailtrans($bo));
 Alert::success('Success', $name.' '.$am.' '.$ph);
                         return redirect('dashboard');
 

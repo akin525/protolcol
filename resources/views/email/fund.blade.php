@@ -116,7 +116,7 @@
                                                 <td align='center' valign='top' style='padding:0;Margin:0;width:560px'>
                                                     <table cellpadding='0' cellspacing='0' width='100%' role='presentation' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px'>
                                                         <tr>
-                                                            <td align='center' class='es-infoblock' style='padding:0;Margin:0;line-height:14px;font-size:12px;color:#CCCCCC'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:14px;color:#CCCCCC;font-size:12px'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#CCCCCC;font-size:12px'>View online version</a></p></td>
+                                                            <td align='center' class='es-infoblock' style='padding:0;Margin:0;line-height:14px;font-size:12px;color:#CCCCCC'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:14px;color:#CCCCCC;font-size:12px'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#CCCCCC;font-size:12px'></a></p></td>
                                                         </tr>
                                                     </table></td>
                                             </tr>
@@ -136,7 +136,7 @@
                                                 <td class='es-m-p0r' valign='top' align='center' style='padding:0;Margin:0;width:560px'>
                                                     <table cellpadding='0' cellspacing='0' width='100%' role='presentation' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px'>
                                                         <tr>
-                                                            {{--                                                            <td align='center' style='padding:0;Margin:0;padding-bottom:10px;font-size:0px'><img src=https://mobile.primedata.com.ng/images/bn.jpeg' alt=Logo style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;font-size:12px' width='200' title='Logo'></td>--}}
+                                                            <td align='center' style='padding:0;Margin:0;padding-bottom:10px;font-size:10px'><img src='https://protocolcheapdata.com.ng/pop.png' alt='Logo' style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;font-size:12px' width='200' title='Logo'></td>
                                                         </tr>
                                                     </table></td>
                                             </tr>
@@ -146,6 +146,7 @@
                     </tr>
                 </table>
                 <table cellpadding='0' cellspacing='0' class='es-content' align='center' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%'>
+
                     <tr>
                         <td align='center' style='padding:0;Margin:0'>
                             <table bgcolor='#ffffff' class='es-content-body' align='center' cellpadding='0' cellspacing='0' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px'>
@@ -156,10 +157,10 @@
                                                 <td align='center' valign='top' style='padding:0;Margin:0;width:560px'>
                                                     <table cellpadding='0' cellspacing='0' width='100%' role='presentation' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px'>
                                                         <tr>
-                                                            <td align='center' style='padding:0;Margin:0;padding-top:10px;padding-bottom:10px;font-size:0px'><img src='https://mobile.primedata.com.ng/images/bn.jpeg' alt style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic' width='100'></td>
+                                                            <td align='center' style='padding:0;Margin:0;padding-top:10px;padding-bottom:10px;font-size:10px'><img src='https://protocolcheapdata.com.ng/pop.png' alt style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic' width='100'></td>
                                                         </tr>
                                                         <tr>
-                                                            <td align='center' style='padding:0;Margin:0;padding-bottom:10px'><h4 style='Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;font-size:46px;font-style:normal;font-weight:bold;color:#333333;align-content: center'>Wallet Funded</h4></td>
+                                                            <td align='center' style='padding:0;Margin:0;padding-bottom:10px'><h1 style='Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;font-size:46px;font-style:normal;font-weight:bold;color:#333333'>Wallet Funded</h1></td>
                                                         </tr>
                                                     </table></td>
                                             </tr>
@@ -179,10 +180,10 @@
                                                 <td align='center' valign='top' style='padding:0;Margin:0;width:560px'>
                                                     <table cellpadding='0' cellspacing='0' width='100%' role='presentation' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px'>
                                                         <tr>
-                                                            {{--                                                            <td align='center' class='es-m-p0r es-m-p0l' style='Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px; align-content: center'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px;align-content: center'>Detail Of Total Amount Funded</p></td>--}}
+                                                            <td align='center' class='es-m-p0r es-m-p0l' style='Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px'>Detail Of Total Amount Funded</p></td>
                                                         </tr>
                                                         <tr>
-                                                            <td align='center' style='padding:0;Margin:0;padding-top:10px;padding-bottom:10px'><span class='es-button-border' style='border-style:solid;border-color:#100b0d;background:#e12f6d;border-width:0px;display:inline-block;border-radius:5px;width:auto'><a href='' class='es-button' target='_blank' style='mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:20px;border-style:solid;border-color:#e12f6d;border-width:10px 30px 10px 30px;display:inline-block;background:#5C68E2;border-radius:5px;font-family:arial, helvetica neue, helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center'>{{ $deposit['username'] }}</a></span></td>
+                                                            <td align='center' style='padding:0;Margin:0;padding-top:10px;padding-bottom:10px'><span class='es-button-border' style='border-style:solid;border-color:#2CB543;background:#404040;border-width:0px;display:inline-block;border-radius:5px;width:auto'><a href='' class='es-button' target='_blank' style='mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:20px;border-style:solid;border-color:#2ba316;border-width:10px 30px 10px 30px;display:inline-block;background:#5C68E2;border-radius:5px;font-family:arial, helvetica neue, helvetica, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center'>{{$deposit['username']}}</a></span></td>
                                                         </tr>
                                                     </table></td>
                                             </tr>
@@ -195,13 +196,12 @@
                                                 <td class='es-m-p0r' align='center' style='padding:0;Margin:0;width:560px'>
                                                     <table cellpadding='0' cellspacing='0' width='100%' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;border-top:2px solid #efefef;border-bottom:2px solid #efefef' role='presentation'>
                                                         <tr>
-                                                            <td align='right' class='es-m-txt-r' style='padding:0;Margin:0;padding-top:10px;padding-bottom:20px'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px'>Amount Fund:&nbsp;<strong>NGN{{$deposit['amount']}}</strong><br>Early Amount:&nbsp;<strong>NGN{{$deposit['iwallet']}}</strong><br>Present Balance:&nbsp;<strong>NGN{{$deposit['fwallet']}}</strong></p></td>
+                                                            <td align='right' class='es-m-txt-r' style='padding:0;Margin:0;padding-top:10px;padding-bottom:20px'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px'>Amount Fund:&nbsp;<strong>₦{{number_format(intval($deposit['amount'] *1))}}</strong><br>Early Amount:&nbsp;<strong>₦{{number_format(intval($deposit['iwallet'] *1))}}</strong><br>Present Balance:&nbsp;<strong>₦{{number_format(intval($deposit['fwallet'] *1))}}</strong></p></td>
                                                         </tr>
                                                     </table></td>
                                             </tr>
                                         </table></td>
                                 </tr>
-
                                 <tr>
                                     <td align='left' style='Margin:0;padding-bottom:10px;padding-top:15px;padding-left:20px;padding-right:20px'>
                                         <table cellpadding='0' cellspacing='0' width='100%' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px'>
@@ -209,7 +209,7 @@
                                                 <td align='left' style='padding:0;Margin:0;width:560px'>
                                                     <table cellpadding='0' cellspacing='0' width='100%' role='presentation' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px'>
                                                         <tr>
-                                                            <td align='center' style='padding:0;Margin:0;padding-top:10px;padding-bottom:10px'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px'>Got a question?&nbsp;Email us at primedata18@gmail.com&nbsp; <a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#100b0d;font-size:14px'></a>.</p></td>
+                                                            <td align='center' style='padding:0;Margin:0;padding-top:10px;padding-bottom:10px'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px'>Got a question?&nbsp;Email us at info@protocolcheapdata.com.ng or give us a call at <a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#313335;font-size:14px'>09061123233</a>.</p></td>
                                                         </tr>
                                                     </table></td>
                                             </tr>
@@ -240,15 +240,15 @@
                                                                 </table></td>
                                                         </tr>
                                                         <tr>
-                                                            <td align='center' style='padding:0;Margin:0;padding-bottom:35px'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:18px;color:#333333;font-size:12px'>© 2022 Primedata, Inc. All Rights Reserved.</p><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:18px;color:#333333;font-size:12px'><br></p></td>
+                                                            <td align='center' style='padding:0;Margin:0;padding-bottom:35px'><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:18px;color:#333333;font-size:12px'>© 2022 Protocolcheapdata.com.ng , Inc. All Rights Reserved.</p><p style='Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, helvetica neue, helvetica, sans-serif;line-height:18px;color:#333333;font-size:12px'><br></p></td>
                                                         </tr>
                                                         <tr>
                                                             <td style='padding:0;Margin:0'>
                                                                 <table cellpadding='0' cellspacing='0' width='100%' class='es-menu' role='presentation' style='mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px'>
                                                                     <tr class='links'>
-                                                                        <td align='center' valign='top' width='33.33%' style='Margin:0;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;border:0'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:12px'>Visit Us </a></td>
-                                                                        <td align='center' valign='top' width='33.33%' style='Margin:0;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;border:0;border-left:1px solid #cccccc'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:12px'>Privacy Policy</a></td>
-                                                                        <td align='center' valign='top' width='33.33%' style='Margin:0;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;border:0;border-left:1px solid #cccccc'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:12px'>Terms of Use</a></td>
+                                                                        <td align='center' valign='top' width='33.33%' style='Margin:0;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;border:0'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:arial, helvetica neue, helvetica, sans-serif;color:#333333;font-size:12px'>Visit Us </a></td>
+                                                                        <td align='center' valign='top' width='33.33%' style='Margin:0;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;border:0;border-left:1px solid #cccccc'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:arial, helvetica neue, helvetica, sans-serif;color:#333333;font-size:12px'>Privacy Policy</a></td>
+                                                                        <td align='center' valign='top' width='33.33%' style='Margin:0;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;border:0;border-left:1px solid #cccccc'><a target='_blank' href='' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:arial, helvetica neue, helvetica, sans-serif;color:#333333;font-size:12px'>Terms of Use</a></td>
                                                                     </tr>
                                                                 </table></td>
                                                         </tr>

@@ -40,7 +40,7 @@ class VertualController
                 CURLOPT_SSL_VERIFYHOST => 0,
                 CURLOPT_SSL_VERIFYPEER => 0,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => array('account_name' => $username, 'business_short_name' => 'PROTOCOLCHEAPDATA', 'uniqueid' => $username, 'email' => $user->email, 'phone' => '08146328645', 'webhook_url' => 'https://protocolcheapdata.com.ng/api/run',),
+                CURLOPT_POSTFIELDS => array('account_name' => $username, 'business_short_name' => 'PROTOCOLCHEAPDATA', 'uniqueid' => $username, 'email' => $user->email, 'phone' => $user->phone_no, 'webhook_url' => 'https://protocolcheapdata.com.ng/api/run',),
                 CURLOPT_HTTPHEADER => array(
                     'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                 ),

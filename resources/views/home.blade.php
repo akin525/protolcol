@@ -243,10 +243,17 @@
                                 <h1 class="text-shadow text-dark">Choose correct path to buy your cheap data with <span
                                         class="text-primary">PROTOCOL CHAEP DATA</span></h1>
                                 <h6 class="mt-3">We Are Here To Serve You Better</h6>
-                                <a href="#" class="btn btn-pill btn-primary btn-w-md py-2 me-2 mb-1">Log In<i
+                                @if(Auth()->user())
+                                <a href="{{route('dashboard')}}" class="btn btn-pill btn-primary btn-w-md py-2 me-2 mb-1">Dashboard<i
                                         class="fe fe-activity ms-2"></i></a>
-                                <a href="#" class="btn btn-pill btn-secondary btn-w-md py-2 mb-1">Sign Up<i
+                                <a href="{{route('logout')}}" class="btn btn-pill btn-secondary btn-w-md py-2 mb-1">Logout<i
                                         class="fe fe-file-text mx-2"></i></a>
+                                @else
+                                    <a href="{{route('login')}}" class="btn btn-pill btn-primary btn-w-md py-2 me-2 mb-1">Log In<i
+                                        class="fe fe-activity ms-2"></i></a>
+                                <a href="{{route('register')}}" class="btn btn-pill btn-secondary btn-w-md py-2 mb-1">Sign Up<i
+                                        class="fe fe-file-text mx-2"></i></a>
+                                    @endif
                             </div>
                             <div class="col-lg-6 text-left pos-relative overflow-hidden market-image">
                                 <img alt="" class="logo-2" src="assets/images/landing/market.png">
