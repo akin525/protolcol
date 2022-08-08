@@ -301,7 +301,7 @@
                                             <div class="mb-2">
                                                 <img class="img-fluid" src="assets/images/Glon.png" alt="">
                                             </div>
-                                            <p class="why-head mb-2">GLO NETWWORK</p>
+                                            <p class="why-head mb-2">GLO NETWORK</p>
                                             <p class="fs-13">Both Airtime And Data </p>
                                         </div>
                                     </div>
