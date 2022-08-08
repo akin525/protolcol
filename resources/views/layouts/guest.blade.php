@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>PrimeData Nig | Data Refill, Airtime, Cable TV, Electricity Subscription</title>
+        <title>Protocolcheapdata Nig | Data Refill, Airtime, Cable TV, Electricity Subscription</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
