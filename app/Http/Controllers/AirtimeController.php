@@ -94,6 +94,8 @@ class AirtimeController
                         'phone' => $request->number,
                         'refid' => $request->refid,
                         'discountamoun' => $tran1,
+                        'balance'=>$gt,
+
                     ]);
 
 
