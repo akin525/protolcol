@@ -21,7 +21,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://www.protocolcheapdata.com.ng/pop.png" />
 
     <!-- BOOTSTRAP CSS -->
-    <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
+{{--    <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />--}}
 
     <!-- STYLE CSS -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
