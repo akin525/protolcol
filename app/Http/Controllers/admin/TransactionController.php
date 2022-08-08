@@ -52,7 +52,7 @@ public function index()
         $st = deposit::where([['created_at', 'like', Carbon::now()->subDay()->format('Y-m-d') . '%']])->count();
         $rt = deposit::where([['created_at', 'like', Carbon::now()->subDays(2)->format('Y-m-d') . '%']])->count();
         $amount=deposit::sum('amount');
-        $am=deposit::where([['date', 'LIKE', '%' . $today . '%']])->sum('amount');
+        $am=deposit::where([['created_at', 'LIKE', '%' . $today . '%']])->sum('amount');
         $am1=deposit::where([['created_at', 'like', '%'. Carbon::now()->subDay()->format('y-m-d'). '%']])->sum('amount');
         $am2=deposit::where([['created_at', 'like', '%'. Carbon::now()->subDays(2)->format('y-m-d'). '%']])->sum('amount');
 
