@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- site icon -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
-    <link rel="icon" href="https://mobile.primedata.com.ng/images/bn.jpeg" type="image/png" />
+    <link rel="icon" href="https://www.protocolcheapdata.com.ng/pop.png" type="image/png" />
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <!-- Fonts -->
