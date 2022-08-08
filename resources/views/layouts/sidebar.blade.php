@@ -21,7 +21,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://www.protocolcheapdata.com.ng/pop.png" />
 
     <!-- BOOTSTRAP CSS -->
-{{--    <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />--}}
+    <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
 
     <!-- STYLE CSS -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
@@ -36,11 +36,11 @@
     <link href="{{asset('assets/switcher/css/switcher.css')}}" rel="stylesheet">
     <link href="{{asset('assets/switcher/demo.css')}}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+{{--    <link rel="stylesheet" href="{{ mix('css/app.css') }}">--}}
     @livewireStyles
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+{{--    <script src="{{ mix('js/app.js') }}" defer></script>--}}
 </head>
 <body class="ltr app sidebar-mini">
 <!-- GLOBAL-LOADER -->
@@ -62,7 +62,7 @@
                 <div class="d-flex">
                     <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
                     <!-- sidebar-toggle-->
-                    <a class="logo-horizontal " href="index.html">
+                    <a class="logo-horizontal " href="{{route('home')}}">
                         <img src="{{asset('pop.png')}}" class="header-brand-img desktop-logo" alt="logo">
                         <img src="{{asset('pop.png')}}" class="header-brand-img light-logo1"
                              alt="logo">
