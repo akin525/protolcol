@@ -94,12 +94,12 @@ public function dashboard(Request $request)
         $today = Carbon::now()->format('Y-m-d');
 
 
-        $data['bill'] = bo::where([['result', '=', '1'], ['date', 'LIKE', $today . '%']])->count();
-        $data['deposit'] = deposit::where([['status', '=', '1'], ['date', 'LIKE', $today . '%']])->count();
+        $data['bill'] = bo::where([['result', '=', '1'], ['created_at', 'LIKE', $today . '%']])->count();
+        $data['deposit'] = deposit::where([['status', '=', '1'], ['created_at', 'LIKE', $today . '%']])->count();
         $data['user'] = User::where([['created_at', 'LIKE', $today . '%']])->count();
         $data['nou'] = wallet::where([['updated_at', 'LIKE', $today . '%']])->count();
-        $data['sum_deposits'] = deposit::where([['date', 'LIKE', '%' . $today . '%']])->sum('amount');
-        $data['sum_bill'] = bo::where([['date', 'LIKE', '%' . $today . '%']])->sum('amount');
+        $data['sum_deposits'] = deposit::where([['created_at', 'LIKE', '%' . $today . '%']])->sum('amount');
+        $data['sum_bill'] = bo::where([['created_at', 'LIKE', '%' . $today . '%']])->sum('amount');
 
         return view('admin/dashboard', compact('user', 'wallet', 'data', 'lock', 'totalcharge',  'tran', 'alluser', 'totaldeposite', 'totalwallet', 'deposite', 'me', 'bil2', 'bill', 'totalrefer', 'totalprofit',  'count'));
 
