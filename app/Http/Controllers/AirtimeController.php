@@ -212,6 +212,8 @@ Alert::error('Insufficient Balance', $mg);
                     'phone' => $request->number,
                     'refid' => $request->refid,
                     'discountamoun' => '0',
+                    'balance'=>$gt,
+
                 ]);
 
                 $success=1;
