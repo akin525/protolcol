@@ -18,7 +18,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <!-- Fonts -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/favicon.ico')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.protocolcheapdata.com.ng/pop.png" />
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
