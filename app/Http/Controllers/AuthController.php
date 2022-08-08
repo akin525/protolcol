@@ -101,7 +101,7 @@ public function pass(Request $request)
         }
 
         Auth::login($user);
-        $admin= 'info@.protocolcheapdata.com.ng';
+        $admin= 'info@protocolcheapdata.com.ng';
 
         $user=User::where('email', $request->email)->first();
 $login=$user->name;
