@@ -80,6 +80,26 @@ class BillController extends Controller
                 $daterserver = new DataserverController();
                 $mcd = server::where('status', "1")->first();
 
+                $success = "1";
+                $po = $amount - $product->amount;
+
+                $bo = bo::create([
+                    'username' => $user->username,
+                    'plan' => $product->network . '|' . $product->plan,
+                    'amount' => $request->amount,
+                    'server_res' => 'response',
+                    'result' => $success,
+                    'phone' => $request->number,
+                    'refid' => $request->id,
+                    'balance'=>$gt,
+                ]);
+
+                $profit = profit::create([
+                    'username' => $user->username,
+                    'plan' => $product->network . '|' . $product->plan,
+                    'amount' => $po,
+                ]);
+
                 if ($mcd->name == "honorworld") {
                     $response = $daterserver->honourwordbill($object);
 
@@ -89,25 +109,6 @@ class BillController extends Controller
                         $success = 1;
                         $ms = $data['message'];
 
-//                    echo $success;
-
-                        $po = $amount - $product->amount;
-
-                        $bo = bo::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $request->amount,
-                            'server_res' => $response,
-                            'result' => $success,
-                            'phone' => $request->number,
-                            'refid' => $request->id,
-                        ]);
-
-                        $profit = profit::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $po,
-                        ]);
 
                         $name = $product->plan;
                         $am = "$product->plan  was successful delivered to";
@@ -144,27 +145,6 @@ class BillController extends Controller
                     $data = json_decode($response, true);
 
                     if ($data['success']==1) {
-
-//                    echo $success;
-                        $success = "1";
-                        $po = $amount - $product->amount;
-
-                        $bo = bo::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $request->amount,
-                            'server_res' => $response,
-                            'result' => $success,
-                            'phone' => $request->number,
-                            'refid' => $request->id,
-                            'balance'=>$gt,
-                        ]);
-
-                        $profit = profit::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $po,
-                        ]);
 
                         $name = $product->plan;
                         $am = "$product->plan  was successful delivered to";
