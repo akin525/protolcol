@@ -39,7 +39,7 @@
                 <p class="py-3 px-5">
                     @foreach($wallet as $wallet1)
                         @if ($wallet1->account_number==1 && $wallet1->account_name==1)
-                            <a href='{{route('vertual')}}' class=''>Click this section to get your permament Virtual Bank Account (Transfer money to the account no to get your PrimeData Wallet funded instantly!)</a>
+                            <a href='{{route('vertual')}}' class=''>Click this section to get your permanent Virtual Bank Account (Transfer money to the account no to get your protocolcheapdata Wallet funded instantly!)</a>
                    @else
                     <h6 class=''>{{$wallet1->account_name}}</h6>
                     <h5 class=''>Account No:{{$wallet1->account_number}}</h5>

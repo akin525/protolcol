@@ -687,8 +687,8 @@
                             </div>
                             <div class="row text-center team">
                                 <div class="col-lg-3 col-sm-6 mb-5">
-                                    <div class="bg-white shadow-sm p-5 team-card"><img
-                                            src="assets/images/landing/team/1.jpg" alt=""
+                                    <div class="bg-white shadow-sm p-5 team-card">
+                                        <img src="{{asset('assets/images/chef.jpg')}}" alt=""
                                             class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                                         <h5 class="mb-1">AKINLABI IYANU</h5><span class="text-muted">Chief Executive Officer
 The owner of PROTOCOL CHEAP DATA</span>
