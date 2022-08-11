@@ -33,7 +33,7 @@ class AlltvController
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array('service' => 'tv'),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
             ),
         ));
 
@@ -94,7 +94,7 @@ $tv=data::where('network', $request->id)->get();
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array('service' => 'tv', 'coded' =>$request->id, 'phone' => $request->number),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: MCDKEY_903sfjfi0ad833mk8537dhc03kbs120r0h9a'
+                'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
             )
         ));
 
@@ -186,7 +186,7 @@ $tv=data::where('network', $request->id)->get();
                         CURLOPT_CUSTOMREQUEST => 'POST',
                         CURLOPT_POSTFIELDS => array('service' => 'tv', 'coded' => $tv->cat_id, 'phone' => $request->number),
                         CURLOPT_HTTPHEADER => array(
-                            'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                            'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                         )
                     ));
 
@@ -218,12 +218,12 @@ $tv=data::where('network', $request->id)->get();
                         $ph = $request->number;
 
                         $receiver = $user->email;
-                        $admin = 'admin@primedata.com.ng';
+                        $admin = 'info@protocolcheapdata.com.ng';
 
                         Mail::to($receiver)->send(new Emailtrans($bo));
                         Mail::to($admin)->send(new Emailtrans($bo));
-
-                        return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
+Alert::success('Success', $name.' '.$am.' '.$ph);
+                        return redirect('dashboard');
 
 
                     }elseif ($success==0){
@@ -234,8 +234,8 @@ $tv=data::where('network', $request->id)->get();
                         $name= $tv->network;
                         $am= "NGN $request->amount Was Refunded To Your Wallet";
                         $ph=", Transaction fail";
-
-                        return view('bill', compact('user', 'name', 'am', 'ph', 'success'));
+Alert::error('Fail', $name.' '.$am.''.$ph);
+                        return redirect('dashboard');
 
                     }
                 }

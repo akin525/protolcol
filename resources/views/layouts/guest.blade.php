@@ -7,14 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>PrimeData Nig | Data Refill, Airtime, Cable TV, Electricity Subscription</title>
+        <title>Protocolcheapdata Nig | Data Refill, Airtime, Cable TV, Electricity Subscription</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="https://www.protocolcheapdata.com.ng/pop.png" />
 
         <!-- BOOTSTRAP CSS -->
-        <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css"')}} rel="stylesheet" />
+        <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
 
         <!-- STYLE CSS -->
         <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
@@ -86,7 +86,30 @@
 
         <!-- SWITCHER JS -->
         <script src="{{asset('assets/switcher/js/switcher.js')}}"></script>
+        <style>
+            .float{
+                position:fixed;
+                width:60px;
+                height:60px;
+                bottom:40px;
+                left:40px;
+                background-color:#25d366;
+                color:#FFF;
+                border-radius:50px;
+                text-align:center;
+                font-size:30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index:100;
+            }
 
+            .my-float{
+                margin-top:16px;
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <a href="http://wa.me/2349061123233" class="float" target="_blank">
+            <i class="fa fa-whatsapp my-float"></i>
+        </a>
     </body>
 
 </html>

@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- site icon -->
-    <link rel="icon" href="https://mobile.primedata.com.ng/images/bn.jpeg" type="image/png" />
+    <link rel="icon" href="https://www.protocolcheapdata.com.ng/pop.png" type="image/png" />
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <!-- Fonts -->

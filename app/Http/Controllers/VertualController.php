@@ -23,6 +23,10 @@ class VertualController
             $user = User::find($request->user()->id);
             $wallet = wallet::where('username', $user->username)->first();
 
+            $username=$user->username. rand(11111, 99999);
+            $email=$user->email;
+            $name=$user->name;
+
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
@@ -36,7 +40,7 @@ class VertualController
                 CURLOPT_SSL_VERIFYHOST => 0,
                 CURLOPT_SSL_VERIFYPEER => 0,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => array('account_name' => $user->username, 'business_short_name' => 'PROTOCOLCHEAPDATA', 'uniqueid' => $user->name, 'email' => $user->email, 'phone' => '08146328645', 'webhook_url' => 'https://protocolcheapdata.com.ng/api/run',),
+                CURLOPT_POSTFIELDS => array('account_name' => $username, 'business_short_name' => 'PROTOCOLCHEAPDATA', 'uniqueid' => $username, 'email' => $user->email, 'phone' => $user->phone_no, 'webhook_url' => 'https://protocolcheapdata.com.ng/api/run',),
                 CURLOPT_HTTPHEADER => array(
                     'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                 ),
@@ -49,6 +53,7 @@ class VertualController
 //return $response;
 //var_dump(array('account_name' => $name,'business_short_name' => 'RENO','uniqueid' => $username,'email' => $email,'phone' => '08146328645', 'webhook_url'=>'https://renomobilemoney.com/go/run.php'));
             $data = json_decode($response, true);
+            if ($data['success']==1){
             $account = $data["data"]["account_name"];
             $number = $data["data"]["account_number"];
             $bank = $data["data"]["bank_name"];
@@ -61,6 +66,11 @@ class VertualController
             return redirect("dashboard")->with('success', 'You are not allowed to access');
 
 
+        }elseif ($data['success']==0){
+
+                Alert::error('Error', $response);
+                return redirect('dashboard');
+            }
         }
     }
     public function run(Request $request)

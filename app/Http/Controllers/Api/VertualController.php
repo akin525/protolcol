@@ -94,7 +94,7 @@ class VertualController
         $pt=$wallet['balance'];
 
         if ($no == $wallet->account_number) {
-            $depo = deposit::where('payment_ref', $refid)->first();
+            $depo = deposit::where('payment_ref', 'api'.$refid)->first();
             $user = user::where('username', $wallet->username)->first();
             if (isset($depo)) {
                 echo "payment refid the same";
@@ -126,20 +126,16 @@ class VertualController
                 $user = user::where('username', $wallet->username)->first();
 
 
-                $admin= 'admin@primedata.com.ng';
-                $admin2= 'primedata18@gmail.com';
+                $admin= 'info@protocolcheapdata.com.ng';
 
                 $receiver= $user->email;
                 Mail::to($receiver)->send(new Emailcharges($charp ));
                 Mail::to($admin)->send(new Emailcharges($charp ));
-                Mail::to($admin2)->send(new Emailcharges($charp ));
 
 
                 $receiver = $user->email;
                 Mail::to($receiver)->send(new Emailfund($deposit));
                 Mail::to($admin)->send(new Emailfund($deposit));
-                Mail::to($admin2)->send(new Emailfund($deposit));
-
             }
 
 

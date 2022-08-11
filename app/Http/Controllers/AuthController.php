@@ -101,14 +101,13 @@ public function pass(Request $request)
         }
 
         Auth::login($user);
-        $admin= 'admin@primedata.com.ng';
-        $admin1= 'primedata18@gmail.com';
+        $admin= 'info@protocolcheapdata.com.ng';
 
         $user=User::where('email', $request->email)->first();
 $login=$user->name;
         $receiver= $request->email;
-//        Mail::to($receiver)->send(new login($login));
-//        Mail::to($admin)->send(new login($login ));
+        Mail::to($receiver)->send(new login($login));
+        Mail::to($admin)->send(new login($login ));
 //        Mail::to($admin1)->send(new login($login ));
 
         Alert::success('Dashboard', 'Login Successfully');

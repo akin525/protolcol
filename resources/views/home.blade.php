@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Noa - Laravel Bootstrap 5 Admin & Dashboard Template">
+    <meta name="description" content="Protocolcheapdata | Data Refill, Airtime, Cable TV, Electricity Subscription">
     <meta name="author" content="Spruko Technologies Private Limited">
-    <meta name="keywords" content="laravel admin template, bootstrap admin template, admin dashboard template, admin dashboard, admin template, admin, bootstrap 5, laravel admin, laravel admin dashboard template, laravel ui template, laravel admin panel, admin panel, laravel admin dashboard, laravel template, admin ui dashboard">
+    <meta name="keywords" content="Protocolcheapdata | Data Refill, Airtime, Cable TV, Electricity Subscription">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('pop.png')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.protocolcheapdata.com.ng/pop.png" />
 
     <!-- TITLE -->
     <title>Protocol Cheap Data</title>
@@ -243,10 +243,17 @@
                                 <h1 class="text-shadow text-dark">Choose correct path to buy your cheap data with <span
                                         class="text-primary">PROTOCOL CHAEP DATA</span></h1>
                                 <h6 class="mt-3">We Are Here To Serve You Better</h6>
-                                <a href="#" class="btn btn-pill btn-primary btn-w-md py-2 me-2 mb-1">Log In<i
+                                @if(Auth()->user())
+                                <a href="{{route('dashboard')}}" class="btn btn-pill btn-primary btn-w-md py-2 me-2 mb-1">Dashboard<i
                                         class="fe fe-activity ms-2"></i></a>
-                                <a href="#" class="btn btn-pill btn-secondary btn-w-md py-2 mb-1">Sign Up<i
+                                <a href="{{route('logout')}}" class="btn btn-pill btn-secondary btn-w-md py-2 mb-1">Logout<i
                                         class="fe fe-file-text mx-2"></i></a>
+                                @else
+                                    <a href="{{route('login')}}" class="btn btn-pill btn-primary btn-w-md py-2 me-2 mb-1">Log In<i
+                                        class="fe fe-activity ms-2"></i></a>
+                                <a href="{{route('register')}}" class="btn btn-pill btn-secondary btn-w-md py-2 mb-1">Sign Up<i
+                                        class="fe fe-file-text mx-2"></i></a>
+                                    @endif
                             </div>
                             <div class="col-lg-6 text-left pos-relative overflow-hidden market-image">
                                 <img alt="" class="logo-2" src="assets/images/landing/market.png">
@@ -294,7 +301,7 @@
                                             <div class="mb-2">
                                                 <img class="img-fluid" src="assets/images/Glon.png" alt="">
                                             </div>
-                                            <p class="why-head mb-2">GLO NETWWORK</p>
+                                            <p class="why-head mb-2">GLO NETWORK</p>
                                             <p class="fs-13">Both Airtime And Data </p>
                                         </div>
                                     </div>
@@ -929,6 +936,30 @@ The owner of PROTOCOL CHEAP DATA</span>
     </div>
 </div>
 </div>
+    <style>
+        .float{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:40px;
+            left:40px;
+            background-color:#25d366;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            font-size:30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index:100;
+        }
+
+        .my-float{
+            margin-top:16px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="http://wa.me/2349061123233" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
 <!-- Footer close -->
 
 </div>
