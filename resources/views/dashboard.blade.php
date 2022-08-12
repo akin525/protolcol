@@ -23,7 +23,7 @@
             <div class="alert alert-success alert-dismissible fade show p-0 mb-4" role="alert">
                 <p class="py-3 px-5 mb-0 border-bottom border-bottom-info-light">
                     <span class="alert-inner--icon me-2"><i class="fe fe-thumbs-up"></i></span>
-                    <strong>Welcome Back {{Auth::user()->name}}</strong>
+                    <strong>{{$greet}} {{Auth::user()->name}}</strong>
                 </p>
                 <p class="py-3 px-5">Important Notification: {{$me->message}}.</p>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
