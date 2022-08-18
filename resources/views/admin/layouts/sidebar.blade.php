@@ -85,15 +85,18 @@
                     <li class="nav-item">
                         <a  class="nav-link" href="{{ route('admin/dashboard') }}"  ><i class="fa fa-dashboard red_color"></i> <span>Dashboard</span></a>
                     </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a  class="nav-link" href="{{ route('admin/webbook') }}"  ><i class="fa fa-bookmark white_color"></i> <span>Webbook</span></a>--}}
-{{--                    </li>--}}
+                    <li class="nav-item">
+                        <a  class="nav-link" href="{{ route('admin/webbook') }}"  ><i class="fa fa-bookmark white_color"></i> <span>Webbook</span></a>
+                    </li>
                     <li class="nav-item">
                         <a  class="nav-link" href="{{ route('admin/air') }}"  ><i class="fa fa-laptop white_color"></i> <span>Airtime Control</span></a>
                     </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a  class="nav-link" href="{{ route('admin/product1') }}"  ><i class="fa fa-shopping-cart white_color"></i> <span>Honorworld Product</span></a>--}}
-{{--                    </li>--}}
+                    <li class="nav-item">
+                        <a  class="nav-link" href="{{ route('admin/product1') }}"  ><i class="fa fa-shopping-cart white_color"></i> <span>Honorworld Product</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a  class="nav-link" href="{{ route('admin/product2') }}"  ><i class="fa fa-shopping-cart white_color"></i> <span>Eassyaccess Product</span></a>
+                    </li>
                     <li class="active">
                         <a href="{{ route('admin/product') }}"  ><i class="fa fa-shopping-cart red_color"></i> <span>MCD Product</span></a>
                     </li>
