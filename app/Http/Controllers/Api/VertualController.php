@@ -5,6 +5,7 @@ use App\Mail\Emailcharges;
 use App\Mail\Emailfund;
 use App\Models\bo;
 use App\Models\charp;
+use App\Models\server;
 use App\Models\web;
 use App\Models\webook;
 use App\Models\deposit;
@@ -157,16 +158,30 @@ class VertualController
 //        $data = json_decode($request, true);
 
         $data = $json;
-//        return $data;
-
-
-
-        $code=$data['code'];
+        $code=$data['status'];
         $message=$data['message'];
-
-        $webook=webook::create([
-            'code'=>$code,
-            'message'=>$message,
+        $webook = webook::create([
+            'code' => $code,
+            'message' => $message,
         ]);
+        return $data;
+        $server=server::where('status', '1')->first();
+        if ($server=='honorworld') {
+
+            $code = $data['code'];
+            $message = $data['message'];
+
+            $webook = webook::create([
+                'code' => $code,
+                'message' => $message,
+            ]);
+        }elseif ($server=='easyaccess'){
+            $code=$data['status'];
+            $message=$data['message'];
+            $webook = webook::create([
+                'code' => $code,
+                'message' => $message,
+            ]);
+        }
     }
 }

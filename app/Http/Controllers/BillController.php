@@ -6,6 +6,7 @@ use App\Models\big;
 use App\Models\bo;
 use App\Models\data;
 use App\Models\deposit;
+use App\Models\easy;
 use App\Models\profit;
 use App\Models\server;
 use App\Models\setting;
@@ -33,6 +34,8 @@ class BillController extends Controller
                 $product = big::where('id', $request->productid)->first();
             } elseif ($serve->name == 'mcd') {
                 $product = data::where('id', $request->productid)->first();
+            }elseif ($serve->name == 'easyaccess') {
+                $product = easy::where('id', $request->productid)->first();
             }
 
             if ($user->apikey == '') {
@@ -75,6 +78,7 @@ class BillController extends Controller
 
                 $object = json_decode($product);
                 $object->number = $request->number;
+                $object->refid=$request->id;
                 $json = json_encode($object);
 
                 $daterserver = new DataserverController();
@@ -91,7 +95,7 @@ class BillController extends Controller
                     'result' => $success,
                     'phone' => $request->number,
                     'refid' => $request->id,
-                    'balance'=>$gt,
+//                    'balance'=>$gt,
                 ]);
 
                 $profit = profit::create([
@@ -174,7 +178,43 @@ class BillController extends Controller
                         return redirect(route('select'));
                     }
 
-                }
+                }elseif ($mcd->name == "easyaccess"){
+                    $response = $daterserver->easyaccess($object);
+
+                    $data = json_decode($response, true);
+//                    return $data;
+                    if ($data['success']=='true') {
+
+                        $name = $product->plan;
+                        $am = "$product->plan  was successful delivered to";
+                        $ph = $request->number;
+
+
+                        $receiver = $user->email;
+                        $admin = 'info@protocolcheapdata.com.ng';
+
+                        Mail::to($receiver)->send(new Emailtrans($bo));
+                        Mail::to($admin)->send(new Emailtrans($bo));
+
+                        Alert::success('Success', $am.' '.$ph);
+
+                        return redirect(route('select'));
+                    }elseif ($data['success']=='false'){
+                        $zo = $wallet->balance + $request->amount;
+                        $wallet->balance = $zo;
+                        $wallet->save();
+
+                        $name = $product->plan;
+                        $am = "NGN $request->amount Was Refunded To Your Wallet";
+                        $ph = ", Transaction fail";
+                        Alert::error('Error', $am.' '.$ph);
+
+
+                        return redirect(route('dashboard'));
+                    }
+
+
+                    }
 
 
 //return $response;

@@ -7,6 +7,7 @@ use App\Models\airtimecon;
 use App\Models\big;
 use App\Models\charp;
 use App\Mail\Emailpass;
+use App\Models\easy;
 use App\Models\Messages;
 use App\Models\refer;
 use App\Models\server;
@@ -222,6 +223,10 @@ $login=$user->name;
 //return $data;
             return view('buydata', compact('user', 'data'));
 
+        }elseif ($serve->name == 'easyaccess'){
+            $user = User::find($request->user()->id);
+            $data= easy::where('status', '1')->where('network', $request->id)->get();
+            return view('buydata', compact('user', 'data'));
         }
        }
     public function redata(Request  $request)
