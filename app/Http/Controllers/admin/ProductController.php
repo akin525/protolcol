@@ -150,7 +150,7 @@ public function edit(Request $request)
         $pro->ramount=$request->ramount;
         $pro->save();
         Alert::success('Admin', 'Product update successfully');
-        return redirect('admin/product1')->with('success', 'Product update successfully');
+        return redirect('admin/product2')->with('success', 'Product update successfully');
 
     }
 

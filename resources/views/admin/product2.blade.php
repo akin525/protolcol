@@ -43,9 +43,6 @@
                                 <td> {{$seller->amount}}</td>
                                 <td> {{$seller->tamount}}</td>
                                 <td> {{$seller->ramount}}</td>
-                                {{--                                <td><a href="{{route('editpayment', $pay->id)}}"--}}
-                                {{--                                       {{$pay->value}}class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>--}}
-                                {{--                                </td>--}}
                                 <td>@if($seller->status=="1")<h6 class="btn-success">Active</h6>@else<h6
                                         class="btn-warning">
                                         Not-Active</h6> @endif</td>
@@ -53,9 +50,7 @@
                                     <label class="toggleSwitch nolabel">
                                         <input type="checkbox" name="status" value="0" id="myCheckBox"
                                                {{$seller->status =="1"?'checked':''}}
-                                               {{--                                            @if($pay->status==1?'checked':'')--}}
                                                onclick="window.location='{{route('admin/pd2', $seller->id)}}'"/>
-                                        <!--                                            <button  type="submit" class="btn-info col-lg">Update</button>-->
                                         <span>
                                                 <span>off</span>
                                                 <span>on</span>
