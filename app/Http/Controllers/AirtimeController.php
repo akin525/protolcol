@@ -53,7 +53,7 @@ class AirtimeController
                 $wallet->save();
 
 
-                $resellerURL = 'https://app2.mcd.5starcompany.com.ng/api/reseller/';
+                $resellerURL = 'https://integration.mcd.5starcompany.com.ng/api/reseller/';
                 $curl = curl_init();
 
                 curl_setopt_array($curl, array(

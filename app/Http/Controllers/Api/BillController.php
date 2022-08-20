@@ -75,7 +75,7 @@ class BillController
                     $daterserver = new DataserverController();
                     if ($fg->plan == "airtime") {
 
-                        $resellerURL = 'https://app2.mcd.5starcompany.com.ng/api/reseller/';
+                        $resellerURL = 'https://integration.mcd.5starcompany.com.ng/api/reseller/';
                         $curl = curl_init();
 
                         curl_setopt_array($curl, array(
