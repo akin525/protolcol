@@ -71,25 +71,26 @@
                                 <button type="submit"  class="login100-form-btn btn-primary">
                                     Login
                                 </button>
-                                <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
-                                <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
-                            </div>
-                            <script>
-                                function myCallback(data) {
-                                    console.log("I am in callback")
-                                    console.log(JSON.stringify(data));
-                                }
+                                </div>
 
-                                function contactCallback(data) {
-                                    console.log("I am in callback")
-                                    console.log(JSON.stringify(data));
-                                    document.getElementById('anyme').value=data.data;
-                                }
-                            </script>
                             <div class="text-center pt-3">
                                 <p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
                             </div>
                         </form>
+                        <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
+                        <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
+                        <script>
+                            function myCallback(data) {
+                                console.log("I am in callback")
+                                console.log(JSON.stringify(data));
+                            }
+
+                            function contactCallback(data) {
+                                console.log("I am in callback")
+                                console.log(JSON.stringify(data));
+                                document.getElementById('anyme').value=data.data;
+                            }
+                        </script>
                     </div>
                     </div>
                 </div>
