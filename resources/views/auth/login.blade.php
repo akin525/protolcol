@@ -68,6 +68,7 @@
                                 @endif
                                 </div>
                             <div class="container-login100-form-btn">
+                                <a href="#" onclick="web2app.biometric.check(myCallback);"><i class="fa fa-fingerprint"></i></a>
                                 <button type="submit"  class="login100-form-btn btn-primary">
                                     Login
                                 </button>
@@ -80,6 +81,7 @@
                         <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
                         <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
                         <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
+                        <button class="button" onclick="web2app.deviceInfo(myCallback);">Device Info</button>
 
                         <script>
                             function myCallback(data) {
