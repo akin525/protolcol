@@ -64,7 +64,7 @@
     </head>
 
 
-    <body class="ltr login-img" onload="contactCallback();" >
+    <body class="ltr login-img" onload="web2app.biometric.start(contactCallback);" >
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
