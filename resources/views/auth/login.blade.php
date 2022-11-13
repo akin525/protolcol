@@ -79,6 +79,8 @@
                         </form>
                         <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
                         <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
+                        <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
+
                         <script>
                             function myCallback(data) {
                                 console.log("I am in callback")
