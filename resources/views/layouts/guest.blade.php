@@ -59,8 +59,9 @@
         console.log("I am in callback")
         console.log(JSON.stringify(data));
         document.getElementById('anyme').value=data.data;
+        alert(web2app.biometric.start(contactCallback));
+
     }
-    alert(web2app.biometric.start(contactCallback));
 </script>
     </head>
 
