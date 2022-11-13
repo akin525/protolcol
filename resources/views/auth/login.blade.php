@@ -100,9 +100,9 @@
                                 console.log(JSON.stringify(data));
                                 // alert(JSON.stringify(data));
                                 const text=JSON.stringify(data);
-                                const obj = JSON.parse(text);
-                                // obj.success=new su(obj.success);
-                                alert(obj);
+                                // const obj = JSON.parse(text);
+                                text.success=new su(text.success);
+                                alert(text);
                             }
 
                             function contactCallback(data) {
