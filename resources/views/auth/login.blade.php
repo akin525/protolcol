@@ -73,16 +73,17 @@
                                 </button>
 
                             </div>
-                            <a href="" onclick="web2app.biometric.check(myCallback);"><h1><i  class="mdi mdi-fingerprint"></i></h1>Login With Fingerprint</a>
-
+                            <center>
+                            <a  onclick="web2app.biometric.check(myCallback);"><h1><i  class="mdi mdi-fingerprint"></i>Fingerprint</h1>Login With </a>
+                            </center>
                             <div class="text-center pt-3">
                                 <p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
                             </div>
                         </form>
-                        <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
-                        <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
-                        <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
-                        <button class="button" onclick="web2app.deviceInfo(myCallback);">Device Info</button>
+{{--                        <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>--}}
+{{--                        <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>--}}
+{{--                        <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>--}}
+{{--                        <button class="button" onclick="web2app.deviceInfo(myCallback);">Device Info</button>--}}
 
                         <script>
                             function myCallback(data) {
