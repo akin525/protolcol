@@ -101,7 +101,7 @@
                                 // alert(JSON.stringify(data));
                                 const text=JSON.stringify(data);
                                 // const obj = JSON.parse(text);
-                                text.success=new su(text.success);
+                                // text.success=new su(text.success);
                                 alert(text);
                             }
 
