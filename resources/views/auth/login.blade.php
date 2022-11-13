@@ -95,6 +95,12 @@
                         <button class="button" onclick="web2app.contacts();">Get Contacts</button>
                         <button class="button" onclick="web2app.selectContact(contactCallback);">Select Contact</button>
                         <script>
+                            function start(contactCallback) {
+                                alert('ok');
+                            }
+                            window.onload = start();
+                        </script>
+                        <script>
                             function myCallback(data) {
                                 console.log("I am in callback")
                                 console.log(JSON.stringify(data));
@@ -111,12 +117,13 @@
                                 // text.success=new su(text.success);
                                 alert(text);
                             }
-
                             function contactCallback(data) {
                                 console.log("I am in callback")
                                 console.log(JSON.stringify(data));
                                 document.getElementById('anyme').value=data.data;
                             }
+
+                            window.onload = contactCallback;
                         </script>
                     </div>
                     </div>
