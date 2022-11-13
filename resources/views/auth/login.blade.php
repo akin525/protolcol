@@ -68,11 +68,12 @@
                                 @endif
                                 </div>
                             <div class="container-login100-form-btn">
-                                <a href="" onclick="web2app.biometric.check(myCallback);"><h1><i  class="mdi mdi-fingerprint"></i></h1></a>
                                 <button type="submit"  class="login100-form-btn btn-primary">
                                     Login <i class="mdi mdi-fingerprint"></i>
                                 </button>
-                                </div>
+                                <a href="" onclick="web2app.biometric.check(myCallback);"><h1><i  class="mdi mdi-fingerprint"></i></h1>Login With Fingerprint</a>
+
+                            </div>
 
                             <div class="text-center pt-3">
                                 <p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
