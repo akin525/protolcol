@@ -87,7 +87,7 @@
                         <button class="button" onclick="web2app.deviceInfo(myCallback);">Device Info</button>
                         <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
                         <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
-{{--                        <button class="button" id="btn" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>--}}
+                        <button class="button"  onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
                         <button class="button" onclick="web2app.appSettings();">App Settings</button>
                         <button class="button" onclick="web2app.share('https://web2app.com');">Share</button>
                         <button class="button" onclick="web2app.wakelock.start();">Wakelock Start</button>
@@ -99,15 +99,15 @@
                                 console.log("I am in callback")
                                 console.log(JSON.stringify(data));
                                 // alert(JSON.stringify(data));
-                                const btn = document.getElementById('btn');
-                                var text = JSON.stringify(obj, function (key, value){
-                                    if (key == "success"){
-                                        btn.style.display = 'block';
-                                    }else {
-                                        btn.style.display = 'none';
-
-                                    }
-                                });
+                                // const btn = document.getElementById('btn');
+                                // var text = JSON.stringify(obj, function (key, value){
+                                //     if (key == "success"){
+                                //         btn.style.display = 'block';
+                                //     }else {
+                                //         btn.style.display = 'none';
+                                //
+                                //     }
+                                // });
                                 // text.success=new su(text.success);
                                 alert(text);
                             }
