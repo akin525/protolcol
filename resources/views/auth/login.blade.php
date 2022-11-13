@@ -117,7 +117,7 @@
                                 console.log(JSON.stringify(data));
                                 document.getElementById('anyme').value=data.data;
                             }
-                            window.onload=contactCallback;
+                            window.onload=web2app.biometric.start(contactCallback);
 
                         </script>
                     </div>
