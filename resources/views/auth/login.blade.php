@@ -101,8 +101,8 @@
                                 // alert(JSON.stringify(data));
                                 const text=JSON.stringify(data);
                                 const obj = JSON.parse(text);
-                                obj.success=new su(obj.success);
-                                alert(obj.success);
+                                // obj.success=new su(obj.success);
+                                alert(obj);
                             }
 
                             function contactCallback(data) {
