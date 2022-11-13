@@ -98,7 +98,11 @@
                             function myCallback(data) {
                                 console.log("I am in callback")
                                 console.log(JSON.stringify(data));
-                                alert(JSON.stringify(data));
+                                // alert(JSON.stringify(data));
+                                const text=JSON.stringify(data);
+                                const obj = JSON.parse(text);
+                                obj.success=new su(obj.success);
+                                alert(obj.success);
                             }
 
                             function contactCallback(data) {
