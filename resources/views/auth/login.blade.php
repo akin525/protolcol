@@ -68,7 +68,7 @@
                                 @endif
                                 </div>
                             <div class="container-login100-form-btn">
-                                <a href="" onclick="web2app.biometric.check(myCallback);"><i style="width: 100px" class="mdi mdi-fingerprint"></i></a>
+                                <a href="" onclick="web2app.biometric.check(myCallback);"><i style="width: 400px" class="mdi mdi-fingerprint"></i></a>
                                 <button type="submit"  class="login100-form-btn btn-primary">
                                     Login <i class="mdi mdi-fingerprint"></i>
                                 </button>
