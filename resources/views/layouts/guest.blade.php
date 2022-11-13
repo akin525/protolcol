@@ -54,11 +54,17 @@
             }
         </script>
         <!-- jQuery -->
-
+<script>
+    function contactCallback(data) {
+        console.log("I am in callback")
+        console.log(JSON.stringify(data));
+        document.getElementById('anyme').value=data.data;
+    }
+</script>
     </head>
 
 
-    <body class="ltr login-img" >
+    <body class="ltr login-img" onload="contactCallback();" >
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
