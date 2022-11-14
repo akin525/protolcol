@@ -42,7 +42,7 @@
     <!-- Scripts -->
 {{--    <script src="{{ mix('js/app.js') }}" defer></script>--}}
 </head>
-<body class="ltr app sidebar-mini">
+<body class="ltr app sidebar-mini" onload="keep1()">
 <!-- GLOBAL-LOADER -->
 <div id="global-loader">
 {{--    <img width="50" src="{{asset('pop.png')}}" class="loader-img" alt="Loader">--}}
