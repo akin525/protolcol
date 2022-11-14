@@ -89,7 +89,7 @@
                         <button class="button" onclick="web2app.vibrate(1000);">Start Vibration</button>
                         <button class="button" onclick="web2app.deviceInfo(contactCallback);">Device Info</button>
                         <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
-                        <button class="button" onclick="web2app.biometric.saveauth({'email':'odejinmi'});">Save Biometric</button>
+                        <button class="button" onclick="web2app.biometric.saveauth({'email':document.getElementById('email'), 'password':document.getElementById('password')});">Save Biometric</button>
                         <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
                         <button class="button" onclick="web2app.share('https://web2app.com');">Share</button>
                         <button class="button" onclick="web2app.wakelock.start();">Wakelock Start</button>
