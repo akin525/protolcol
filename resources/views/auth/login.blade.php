@@ -75,7 +75,7 @@
                             </div>
                             <br>
                             <center>
-                            <a  onclick="web2app.biometric.check(myCallback);"><h3 class="text-success"><i  class="mdi mdi-fingerprint"></i>Fingerprint</h3>Login With </a>
+                            <a  onclick="web2app.biometric.start(contactCallback);"><h3 class="text-success"><i  class="mdi mdi-fingerprint"></i>Fingerprint</h3>Login With </a>
                             </center>
                             <div class="text-center pt-3">
                                 <p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
