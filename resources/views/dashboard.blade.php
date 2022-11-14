@@ -2,7 +2,7 @@
 
 <script>
     web2app.biometric.saveauth({'email':{{Auth::user()->mail}}, 'password': @if (Session::has('success'))
-            {{ Session::get('success') }}@@endif});
+            {{ Session::get('success') }}@endif});
 </script>
 <!--app-content open-->
 <div class="app-content main-content mt-0">
