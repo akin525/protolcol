@@ -102,7 +102,7 @@
     }
 
     $(document).ready(function () {
-        alert("hello guys");
+        // alert("hello guys");
 
         web2app.biometric.check(myCallback);
 
@@ -112,7 +112,7 @@
 
 </script>
                         <script>
-                            function web2appIniti(){
+                            function web2appIniti(data){
                                 alert("hello guys");
 
                             }
