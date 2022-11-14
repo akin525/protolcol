@@ -4,6 +4,33 @@
     web2app.biometric.saveauth({'email':{{Auth::user()->mail}}, 'password': @if (Session::has('success'))
             {{ Session::get('success') }}@endif});
 </script>
+<script>
+    function myCallback(data) {
+        console.log("I am in callback")
+        console.log(JSON.stringify(data));
+        // alert(JSON.stringify(data));
+        // const btn = document.getElementById('btn');
+        // var text = JSON.stringify(obj, function (key, value){
+        //     if (key == "success"){
+        //         btn.style.display = 'block';
+        //     }else {
+        //         btn.style.display = 'none';
+        //
+        //     }
+        // });
+        // text.success=new su(text.success);
+        alert(JSON.stringify(data));
+    }
+    function contactCallback(data) {
+        console.log("I am in callback")
+        console.log(JSON.stringify(data));
+        // document.getElementById('anyme').value=data.data;
+        alert(JSON.stringify(data));
+    }
+
+
+</script>
+
 <!--app-content open-->
 <div class="app-content main-content mt-0">
     <div class="side-app">
