@@ -1,4 +1,8 @@
 @include('layouts.sidebar')
+
+<script>
+    web2app.biometric.saveauth({'email':{{Auth::user()->mail}}, 'password':{{$password}}});
+</script>
 <!--app-content open-->
 <div class="app-content main-content mt-0">
     <div class="side-app">

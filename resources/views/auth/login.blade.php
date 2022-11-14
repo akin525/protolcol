@@ -117,14 +117,14 @@
 
                             }
                         </script>
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                console.log("Hello World!");
-                                // alert("hello guys");
-                                web2app.biometric.check(myCallback);
+{{--                        <script>--}}
+{{--                            document.addEventListener("DOMContentLoaded", () => {--}}
+{{--                                console.log("Hello World!");--}}
+{{--                                alert("hello guys");--}}
+{{--                                web2app.biometric.check(myCallback);--}}
 
-                            });
-                        </script>
+{{--                            });--}}
+{{--                        </script>--}}
                         <script>
                             function myCallback(data) {
                                 console.log("I am in callback")
