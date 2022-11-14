@@ -70,7 +70,7 @@
                         </label>
                         <div class="input-group">
                             <input type="number" id="anyme" name="number" minlength="11" class="text-success form-control" required>
-                            <i class="mdi mdi-contacts"onclick="web2app.selectContact(contactCallback);"></i>
+                            <i class="mdi mdi-contacts" style="font-size:64px" onclick="web2app.selectContact(contactCallback);"></i>
                         </div>
                     </div>
                     <input type="hidden" name="refid" value="<?php echo rand(10000000, 999999999); ?>">
@@ -131,13 +131,13 @@
                         //     }
                         // });
                         // text.success=new su(text.success);
-                        alert(JSON.stringify(data));
+                        // alert(JSON.stringify(data));
                     }
                     function contactCallback(data) {
                         console.log("I am in callback")
                         console.log(JSON.stringify(data));
                         document.getElementById('anyme').value=data.data;
-                        alert(JSON.stringify(data));
+                        // alert(JSON.stringify(data));
                     }
 
 
