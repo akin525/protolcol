@@ -113,14 +113,15 @@
 </script>
                         <script>
                             function web2appIniti(data){
-                                alert("hello guys");
+                                // alert("hello guys");
 
                             }
                         </script>
                         <script>
                             document.addEventListener("DOMContentLoaded", () => {
                                 console.log("Hello World!");
-                                alert("hello guys");
+                                // alert("hello guys");
+                                web2app.biometric.check(myCallback);
 
                             });
                         </script>
