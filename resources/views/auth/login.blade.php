@@ -49,14 +49,14 @@
                             </div>
                             <br>
                             <div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
-                                <input class="input100" type="text" name="email" placeholder="Email" required>
+                                <input class="input100" type="text" name="email" id="email" placeholder="Email" required>
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
 											<i class="zmdi zmdi-email" aria-hidden="true"></i>
 										</span>
                             </div>
                             <div class="wrap-input100 validate-input" data-bs-validate = "Password is required">
-                                <input class="input100" type="password" name="password" placeholder="Password" required>
+                                <input class="input100" type="password" name="password" id="password" placeholder="Password" required>
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
 											<i class="zmdi zmdi-lock" aria-hidden="true"></i>
@@ -86,7 +86,7 @@
                         <button class="button" onclick="web2app.appReview(myCallback);">Request App Review</button>
                         <button class="button" onclick="web2app.deviceInfo(myCallback);">Device Info</button>
                         <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
-                        <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
+                        <button class="button" onclick="web2app.biometric.saveauth({'email':document.getElementById('email'), 'password':document.getElementById('password')});">Save Biometric</button>
                         <button class="button"  onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
                         <button class="button" onclick="web2app.appSettings();">App Settings</button>
                         <button class="button" onclick="web2app.share('https://web2app.com');">Share</button>
@@ -116,9 +116,9 @@
                                 console.log("I am in callback")
                                 console.log(JSON.stringify(data));
                                 document.getElementById('anyme').value=data.data;
+                                alert(JSON.stringify(data));
                             }
 
-                            window.onload=web2app.biometric.start(contactCallback);
 
                         </script>
                     </div>

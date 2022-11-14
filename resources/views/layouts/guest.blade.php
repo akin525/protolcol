@@ -54,19 +54,11 @@
             }
         </script>
         <!-- jQuery -->
-<script>
-    function contactCallback(data) {
-        console.log("I am in callback")
-        console.log(JSON.stringify(data));
-        document.getElementById('anyme').value=data.data;
-        alert(web2app.biometric.start(contactCallback));
 
-    }
-</script>
     </head>
 
 
-    <body class="ltr login-img" onload="contactCallback();" >
+    <body class="ltr login-img" >
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
