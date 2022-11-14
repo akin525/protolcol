@@ -110,10 +110,10 @@ $login=$user->name;
         Mail::to($receiver)->send(new login($login));
         Mail::to($admin)->send(new login($login ));
 //        Mail::to($admin1)->send(new login($login ));
-
+$passed=$request->password;
         Alert::success('Dashboard', 'Login Successfully');
         return redirect()->intended('dashboard')
-            ->with('success', 'Signed in');
+            ->with('success', $passed );
 
 
     }
