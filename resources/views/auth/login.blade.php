@@ -111,7 +111,7 @@
                                 //     }
                                 // });
                                 // text.success=new su(text.success);
-                                alert(text);
+                                alert(JSON.stringify(data));
                             }
                             function contactCallback(data) {
                                 console.log("I am in callback")
