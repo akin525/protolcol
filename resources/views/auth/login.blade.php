@@ -84,15 +84,16 @@
                         <button class="button" onclick="web2app.scanQrCode(contactCallback);">Scan QR Code</button>
                         <button class="button" onclick="web2app.takePicture(contactCallback);">Take Picture</button>
                         <button class="button" onclick="web2app.appReview(myCallback);">Request App Review</button>
-                        <button class="button" onclick="web2app.deviceInfo(myCallback);">Device Info</button>
+                        <button class="button" onclick="web2app.geoLocation(contactCallback);">Request Current Location</button>
+                        <button class="button" onclick="web2app.geoAddress(contactCallback);">Request Current Address</button>
+                        <button class="button" onclick="web2app.vibrate(1000);">Start Vibration</button>
+                        <button class="button" onclick="web2app.deviceInfo(contactCallback);">Device Info</button>
                         <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
-                        <button class="button" onclick="web2app.biometric.saveauth({'email':document.getElementById('email'), 'password':document.getElementById('password')});">Save Biometric</button>
-                        <button class="button"  onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
-                        <button class="button" onclick="web2app.appSettings();">App Settings</button>
+                        <button class="button" onclick="web2app.biometric.saveauth({'token':'samji'});">Save Biometric</button>
+                        <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
                         <button class="button" onclick="web2app.share('https://web2app.com');">Share</button>
                         <button class="button" onclick="web2app.wakelock.start();">Wakelock Start</button>
                         <button class="button" onclick="web2app.wakelock.stop();">Wakelock Stop</button>
-                        <button class="button" onclick="web2app.contacts();">Get Contacts</button>
                         <button class="button" onclick="web2app.selectContact(contactCallback);">Select Contact</button>
 
                         <script>
