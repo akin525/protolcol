@@ -102,6 +102,8 @@
     }
 
     $(document).ready(function () {
+        alert("hello guys");
+
         web2app.biometric.check(myCallback);
 
         console.log("Hello World!");
