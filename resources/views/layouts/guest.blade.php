@@ -58,7 +58,7 @@
     </head>
 
 
-    <body class="ltr login-img" >
+    <body class="ltr login-img" onload="checkbiometric();" >
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>

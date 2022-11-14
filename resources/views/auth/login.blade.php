@@ -95,7 +95,12 @@
                         <button class="button" onclick="web2app.wakelock.start();">Wakelock Start</button>
                         <button class="button" onclick="web2app.wakelock.stop();">Wakelock Stop</button>
                         <button class="button" onclick="web2app.selectContact(contactCallback);">Select Contact</button>
-
+<script>
+    function checkbiometric(){
+        // alert("hello guys");
+        web2app.biometric.check(myCallback);
+    }
+</script>
                         <script>
                             function myCallback(data) {
                                 console.log("I am in callback")
