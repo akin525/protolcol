@@ -108,7 +108,22 @@
 
         console.log("Hello World!");
     });
+
+
 </script>
+                        <script>
+                            function web2appIniti(){
+                                alert("hello guys");
+
+                            }
+                        </script>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                console.log("Hello World!");
+                                alert("hello guys");
+
+                            });
+                        </script>
                         <script>
                             function myCallback(data) {
                                 console.log("I am in callback")
