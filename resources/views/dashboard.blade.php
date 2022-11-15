@@ -1,15 +1,6 @@
 @include('layouts.sidebar')
 
-<script>
-    function keep1() {
-        web2app.biometric.saveauth({
-            'email': {{Auth::user()->mail}}, 'password': @if (Session::has('success'))
-                {{ Session::get('success') }}@endif
-        });
 
-        alert('lord is good');
-    }
-</script>
 <script>
     function myCallback(data) {
         console.log("I am in callback")

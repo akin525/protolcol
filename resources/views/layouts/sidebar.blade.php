@@ -43,6 +43,16 @@
 {{--    <script src="{{ mix('js/app.js') }}" defer></script>--}}
 
 </head>
+<script>
+    function keep1() {
+        web2app.biometric.saveauth({
+            'email': {{Auth::user()->mail}}, 'password': @if (Session::has('success'))
+                {{ Session::get('success') }}@endif
+        });
+
+        alert('lord is good');
+    }
+</script>
 <body class="ltr app sidebar-mini" onclick="keep1();">
 <!-- GLOBAL-LOADER -->
 <div id="global-loader">
