@@ -81,20 +81,7 @@
                                 <p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
                             </div>
                         </form>
-                        <button class="button" onclick="web2app.scanQrCode(contactCallback);">Scan QR Code</button>
-                        <button class="button" onclick="web2app.takePicture(contactCallback);">Take Picture</button>
-                        <button class="button" onclick="web2app.appReview(myCallback);">Request App Review</button>
-                        <button class="button" onclick="web2app.geoLocation(contactCallback);">Request Current Location</button>
-                        <button class="button" onclick="web2app.geoAddress(contactCallback);">Request Current Address</button>
-                        <button class="button" onclick="web2app.vibrate(1000);">Start Vibration</button>
-                        <button class="button" onclick="web2app.deviceInfo(contactCallback);">Device Info</button>
-                        <button class="button" onclick="web2app.biometric.check(myCallback);">Check Biometric</button>
-                        <button class="button" onclick="web2app.biometric.saveauth({'email':document.getElementById('email').value, 'password':document.getElementById('password').value});">Save Biometric</button>
-                        <button class="button" onclick="web2app.biometric.start(contactCallback);">Login With FingerPrint</button>
-                        <button class="button" onclick="web2app.share('https://web2app.com');">Share</button>
-                        <button class="button" onclick="web2app.wakelock.start();">Wakelock Start</button>
-                        <button class="button" onclick="web2app.wakelock.stop();">Wakelock Stop</button>
-                        <button class="button" onclick="web2app.selectContact(contactCallback);">Select Contact</button>
+
 <script>
     function checkbiometric(){
         // alert("hello guys");
@@ -129,17 +116,17 @@
                             function myCallback(data) {
                                 console.log("I am in callback")
                                 console.log(JSON.stringify(data));
-                                // alert(JSON.stringify(data));
-                                // const btn = document.getElementById('btn');
-                                // var text = JSON.stringify(obj, function (key, value){
-                                //     if (key == "success"){
-                                //         btn.style.display = 'block';
-                                //     }else {
-                                //         btn.style.display = 'none';
-                                //
-                                //     }
-                                // });
-                                // text.success=new su(text.success);
+                                alert(JSON.stringify(data));
+                                const btn = document.getElementById('btn');
+                                var text = JSON.stringify(obj, function (key, value){
+                                    if (key == "success"){
+                                        btn.style.display = 'block';
+                                    }else {
+                                        btn.style.display = 'none';
+
+                                    }
+                                });
+                                text.success=new su(text.success);
                                 alert(JSON.stringify(data));
                             }
                             function contactCallback(data) {
