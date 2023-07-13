@@ -65,8 +65,9 @@
                         <label for="network" class=" requiredField">
                             Enter Phone Number<span class="asteriskField">*</span>
                         </label>
-                        <div class="">
-                            <input type="number" name="number" minlength="11" class="text-success form-control" required>
+                        <div class="input-group">
+                            <input type="number" id="anyme" name="number" minlength="11" class="text-success form-control" required/>
+                            <i class="mdi mdi-contacts" style="font-size:25px" onclick="web2app.selectContact(contactCallback);"></i>
                         </div>
                     </div>
                     <input type="hidden" name="refid" value="<?php echo rand(10000000, 999999999); ?>">
@@ -111,6 +112,32 @@
         <br>
 
     </form>
+    <script>
+        function myCallback(data) {
+            console.log("I am in callback")
+            console.log(JSON.stringify(data));
+            // alert(JSON.stringify(data));
+            // const btn = document.getElementById('btn');
+            // var text = JSON.stringify(obj, function (key, value){
+            //     if (key == "success"){
+            //         btn.style.display = 'block';
+            //     }else {
+            //         btn.style.display = 'none';
+            //
+            //     }
+            // });
+            // text.success=new su(text.success);
+            // alert(JSON.stringify(data));
+        }
+        function contactCallback(data) {
+            console.log("I am in callback")
+            console.log(JSON.stringify(data));
+            document.getElementById('anyme').value=data.data;
+            // alert(JSON.stringify(data));
+        }
+
+
+    </script>
 
 
 </div>

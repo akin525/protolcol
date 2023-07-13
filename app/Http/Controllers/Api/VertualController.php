@@ -5,6 +5,7 @@ use App\Mail\Emailcharges;
 use App\Mail\Emailfund;
 use App\Models\bo;
 use App\Models\charp;
+use App\Models\server;
 use App\Models\web;
 use App\Models\webook;
 use App\Models\deposit;
@@ -26,7 +27,7 @@ class VertualController
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://app2.mcd.5starcompany.com.ng/api/reseller/virtual-account',
+                CURLOPT_URL => 'https://integration.mcd.5starcompany.com.ng/api/reseller/virtual-account',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -94,7 +95,7 @@ class VertualController
         $pt=$wallet['balance'];
 
         if ($no == $wallet->account_number) {
-            $depo = deposit::where('payment_ref', $refid)->first();
+            $depo = deposit::where('payment_ref', 'api'.$refid)->first();
             $user = user::where('username', $wallet->username)->first();
             if (isset($depo)) {
                 echo "payment refid the same";
@@ -126,20 +127,16 @@ class VertualController
                 $user = user::where('username', $wallet->username)->first();
 
 
-                $admin= 'admin@primedata.com.ng';
-                $admin2= 'primedata18@gmail.com';
+                $admin= 'info@protocolcheapdata.com.ng';
 
                 $receiver= $user->email;
                 Mail::to($receiver)->send(new Emailcharges($charp ));
                 Mail::to($admin)->send(new Emailcharges($charp ));
-                Mail::to($admin2)->send(new Emailcharges($charp ));
 
 
                 $receiver = $user->email;
                 Mail::to($receiver)->send(new Emailfund($deposit));
                 Mail::to($admin)->send(new Emailfund($deposit));
-                Mail::to($admin2)->send(new Emailfund($deposit));
-
             }
 
 
@@ -161,16 +158,30 @@ class VertualController
 //        $data = json_decode($request, true);
 
         $data = $json;
-//        return $data;
-
-
-
-        $code=$data['code'];
+        $code=$data['status'];
         $message=$data['message'];
-
-        $webook=webook::create([
-            'code'=>$code,
-            'message'=>$message,
+        $webook = webook::create([
+            'code' => $code,
+            'message' => $message,
         ]);
+        return $data;
+        $server=server::where('status', '1')->first();
+        if ($server=='honorworld') {
+
+            $code = $data['code'];
+            $message = $data['message'];
+
+            $webook = webook::create([
+                'code' => $code,
+                'message' => $message,
+            ]);
+        }elseif ($server=='easyaccess'){
+            $code=$data['status'];
+            $message=$data['message'];
+            $webook = webook::create([
+                'code' => $code,
+                'message' => $message,
+            ]);
+        }
     }
 }

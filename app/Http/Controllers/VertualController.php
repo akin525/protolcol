@@ -11,6 +11,7 @@ use App\Models\setting;
 use App\Models\wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -22,10 +23,14 @@ class VertualController
             $user = User::find($request->user()->id);
             $wallet = wallet::where('username', $user->username)->first();
 
+            $username=$user->username. rand(11111, 99999);
+            $email=$user->email;
+            $name=$user->name;
+
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://app2.mcd.5starcompany.com.ng/api/reseller/virtual-account',
+                CURLOPT_URL => 'https://integration.mcd.5starcompany.com.ng/api/reseller/virtual-account',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -35,9 +40,9 @@ class VertualController
                 CURLOPT_SSL_VERIFYHOST => 0,
                 CURLOPT_SSL_VERIFYPEER => 0,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => array('account_name' => $user->username, 'business_short_name' => 'PRIMEDATA', 'uniqueid' => $user->name, 'email' => $user->email, 'phone' => '08146328645', 'webhook_url' => 'https://mobile.primedata.com.ng/api/run',),
+                CURLOPT_POSTFIELDS => array('account_name' => $username, 'business_short_name' => 'PROTOCOLCHEAPDATA', 'uniqueid' => $username, 'email' => $user->email, 'phone' => $user->phone_no, 'webhook_url' => 'https://protocolcheapdata.com.ng/api/run',),
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                    'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
                 ),
             ));
 
@@ -48,6 +53,7 @@ class VertualController
 //return $response;
 //var_dump(array('account_name' => $name,'business_short_name' => 'RENO','uniqueid' => $username,'email' => $email,'phone' => '08146328645', 'webhook_url'=>'https://renomobilemoney.com/go/run.php'));
             $data = json_decode($response, true);
+            if ($data['success']==1){
             $account = $data["data"]["account_name"];
             $number = $data["data"]["account_number"];
             $bank = $data["data"]["bank_name"];
@@ -56,9 +62,15 @@ class VertualController
             $wallet->account_name = $account;
             $wallet->save();
 
-            return redirect("dashboard")->withSuccess('You are not allowed to access');
+            Alert::success('Succeaa', 'Virtual Account Successful Created');
+            return redirect("dashboard")->with('success', 'You are not allowed to access');
 
 
+        }elseif ($data['success']==0){
+
+                Alert::error('Error', $response);
+                return redirect('dashboard');
+            }
         }
     }
     public function run(Request $request)
@@ -121,7 +133,7 @@ class VertualController
                 $user = user::where('username', $wallet->username)->first();
 
                 $receiver = $user->email;
-                Mail::to($receiver)->send(new Emailfund($deposit));
+//                Mail::to($receiver)->send(new Emailfund($deposit));
 
             }
 

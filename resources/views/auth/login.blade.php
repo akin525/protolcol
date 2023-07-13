@@ -49,14 +49,14 @@
                             </div>
                             <br>
                             <div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
-                                <input class="input100" type="text" name="email" placeholder="Email" required>
+                                <input class="input100" type="text" name="email" id="email" placeholder="Email" required>
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
 											<i class="zmdi zmdi-email" aria-hidden="true"></i>
 										</span>
                             </div>
                             <div class="wrap-input100 validate-input" data-bs-validate = "Password is required">
-                                <input class="input100" type="password" name="password" placeholder="Password" required>
+                                <input class="input100" type="password" name="password" id="password" placeholder="Password" required>
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
 											<i class="zmdi zmdi-lock" aria-hidden="true"></i>
@@ -71,11 +71,71 @@
                                 <button type="submit"  class="login100-form-btn btn-primary">
                                     Login
                                 </button>
+
                             </div>
+                            <br>
+
                             <div class="text-center pt-3">
                                 <p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
                             </div>
                         </form>
+
+<script>
+    function checkbiometric(){
+        // alert("hello guys");
+        web2app.biometric.check(myCallback);
+    }
+
+    $(document).ready(function () {
+        // alert("hello guys");
+
+        web2app.biometric.check(myCallback);
+
+        console.log("Hello World!");
+    });
+
+
+</script>
+                        <script>
+                            function web2appIniti(data){
+                                // alert("hello guys");
+
+                            }
+                        </script>
+{{--                        <script>--}}
+{{--                            document.addEventListener("DOMContentLoaded", () => {--}}
+{{--                                console.log("Hello World!");--}}
+{{--                                alert("hello guys");--}}
+{{--                                web2app.biometric.check(myCallback);--}}
+
+{{--                            });--}}
+{{--                        </script>--}}
+                        <script>
+                            function myCallback(data) {
+                                console.log("I am in callback")
+                                console.log(JSON.stringify(data));
+                                alert(JSON.stringify(data));
+                                const btn = document.getElementById('btn');
+                                var text = JSON.stringify(obj, function (key, value){
+                                    if (key == "success"){
+                                        btn.style.display = 'block';
+                                    }else {
+                                        btn.style.display = 'none';
+
+                                    }
+                                });
+                                text.success=new su(text.success);
+                                alert(JSON.stringify(data));
+                            }
+                            function contactCallback(data) {
+                                console.log("I am in callback")
+                                console.log(JSON.stringify(data));
+                                // document.getElementById('anyme').value=data.data;
+                                alert(JSON.stringify(data));
+                            }
+
+
+                        </script>
                     </div>
                     </div>
                 </div>

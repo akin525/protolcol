@@ -221,8 +221,8 @@
                         <div class="counter_no">
                             <div>
 
-                                <h5 class="total_no text-center">₦{{ number_format(intval($lock *1),2)}}</h5>
-                                <h6 class="head_couter">Airtime Discounts</h6>
+                                <h5 class="total_no text-center">₦{{ number_format(intval($ba *1),2)}}</h5>
+                                <h6 class="head_couter">EasyAccess Balance </h6>
                             </div>
                         </div>
                     </div>

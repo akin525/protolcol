@@ -7,6 +7,7 @@ use App\Models\airtimecon;
 use App\Models\big;
 use App\Models\charp;
 use App\Mail\Emailpass;
+use App\Models\easy;
 use App\Models\Messages;
 use App\Models\refer;
 use App\Models\server;
@@ -101,28 +102,29 @@ public function pass(Request $request)
         }
 
         Auth::login($user);
-        $admin= 'admin@primedata.com.ng';
-        $admin1= 'primedata18@gmail.com';
+        $admin= 'info@protocolcheapdata.com.ng';
 
         $user=User::where('email', $request->email)->first();
 $login=$user->name;
         $receiver= $request->email;
-//        Mail::to($receiver)->send(new login($login));
-//        Mail::to($admin)->send(new login($login ));
+        Mail::to($receiver)->send(new login($login));
+        Mail::to($admin)->send(new login($login ));
 //        Mail::to($admin1)->send(new login($login ));
-
+$passed=$request->password;
         Alert::success('Dashboard', 'Login Successfully');
         return redirect()->intended('dashboard')
-            ->with('success', 'Signed in');
+            ->with('success', $passed );
 
 
     }
     public function dashboard(Request $request)
     {
+        $serve = server::where('status', '1')->first();
 
             $user = User::find($request->user()->id);
             $me = Messages::where('status', 1)->first();
             $refer = refer::where('username', $request->user()->username)->get();
+
             $totalrefer = 0;
             foreach ($refer as $de){
                 $totalrefer += $de->amount;
@@ -131,6 +133,7 @@ $login=$user->name;
             $count = refer::where('username',$request->user()->username)->count();
 
             $wallet = wallet::where('username', $user->username)->get();
+            $wallet2 = wallet::where('username', $user->username)->first();
             $deposite = deposit::where('username', $request->user()->username)->get();
             $totaldeposite = 0;
             foreach ($deposite as $depo){
@@ -143,9 +146,36 @@ $login=$user->name;
                 $bill += $bill1->amount;
 
             }
-            return  view('dashboard', compact('user', 'wallet', 'totaldeposite', 'me',  'bil2', 'bill', 'totalrefer', 'count'));
+        /* This sets the $time variable to the current hour in the 24 hour clock format */
+        $time = date("H");
+        /* Set the $timezone variable to become the current timezone */
+        $timezone = date("e");
+        /* If the time is less than 1200 hours, show good morning */
+        if ($time < "12") {
+            $greet="Good morning";
+        } else
+            /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
+            if ($time >= "12" && $time < "17") {
+                $greet="Good afternoon";
+            } else
+                /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
+                if ($time >= "17" && $time < "19") {
+                    $greet="Good evening";
+                } else
+                    /* Finally, show good night if the time is greater than or equal to 1900 hours */
+                    if ($time >= "19") {
+                        $greet="Good night";
+                    }
+            return  view('dashboard', compact('user', 'wallet', 'greet', 'serve', 'wallet2', 'totaldeposite', 'me',  'bil2', 'bill', 'totalrefer', 'count'));
 
     }
+    function netwplanrequest(Request $request, $selectedValue)
+    {
+        $options = data::where('network', $selectedValue)->get();
+        return response()->json($options);
+
+    }
+
     public function refer(Request $request)
     {
 
@@ -165,11 +195,15 @@ $login=$user->name;
     public function select(Request  $request)
     {
         $serve = server::where('status', '1')->first();
-
+        if (isset($serve)) {
             $user = User::find($request->user()->id);
 
 
             return view('select', compact('user', 'serve'));
+        } else {
+            Alert::info('Server', 'Out of service, come back later');
+            return redirect('dashboard');
+        }
        }
     public function select1(Request  $request)
     {
@@ -180,47 +214,48 @@ $login=$user->name;
 
             return view('select1', compact('user', 'serve'));
          }
-    public function buydata(Request  $request)
+    public function buydata(Request  $request, $selectedValue)
     {
-        $request->validate([
-            'id' => 'required',
-        ]);
+
         $serve = server::where('status', '1')->first();
 
         if ($serve->name == 'mcd') {
             $user = User::find($request->user()->id);
-            $data = data::where(['status' => 1])->where('network', $request->id)->get();
+            $data = data::where(['status' => 1])->where('network', $selectedValue)->get();
 
 
-            return view('buydata', compact('user', 'data'));
+            return response()->json($data);
         } elseif ($serve->name == 'honorworld') {
             $user = User::find($request->user()->id);
-            $data= big::where('status', '1')->where('network', $request->id)->get();
+            $data= big::where('status', '1')->where('network', $selectedValue)->get();
 //return $data;
-            return view('buydata', compact('user', 'data'));
+            return response()->json($data);
+
+        }elseif ($serve->name == 'easyaccess'){
+            $user = User::find($request->user()->id);
+            $data= easy::where('status', '1')->where('network', $selectedValue)->get();
+            return response()->json($data);
 
         }
        }
-    public function redata(Request  $request)
+    public function redata(Request  $request, $selectedValue)
     {
 
-        $request->validate([
-            'id' => 'required',
-        ]);
+
         $daterserver = new DataserverController();
         $serve = server::where('status', '1')->first();
 //return $request->id;
         if ($serve->name == 'mcd') {
             $user = User::find($request->user()->id);
-            $data = data::where(['status' => 1])->where('network', $request->id)->get();
+            $data = data::where(['status' => 1])->where('network', $selectedValue)->get();
 
-//return $data;
-            return view('redata', compact('user', 'data'));
+            return response()->json($data);
+
         } elseif ($serve->name == 'honorworld') {
             $user = User::find($request->user()->id);
-            $data= big::where('status', '1')->where('network', $request->id)->get();
-//return $data;
-            return view('redata', compact('user', 'data'));
+            $data= big::where('status', '1')->where('network', $selectedValue)->get();
+            return response()->json($data);
+
 
         }
        }
@@ -233,7 +268,7 @@ $login=$user->name;
         ]);
         if(Auth::check()){
             $user = User::find($request->user()->id);
-            $data = data::where('id',$request->id )->get();
+            $data = data::where('id',$request )->get();
 
             return view('pre', compact('user', 'data'));
         }
@@ -243,7 +278,11 @@ $login=$user->name;
     public function airtime(Request  $request)
     {
         $con=DB::table('airtimecons')->where('status', '=', '1')->first();
-        $se=$con->server;
+        if (isset($con)) {
+            $se = $con->server;
+        }else{
+            $se=0;
+        }
         if ($se == 'MCD') {
             $user = User::find($request->user()->id);
             $data = data::where('plan_id', "airtime")->get();
@@ -253,8 +292,12 @@ $login=$user->name;
         } elseif ($se == 'Honor'){
             return view('airtime1');
 
+        }else {
+            Alert::info('Server', 'Out of service, come back later');
+            return redirect('dashboard');
         }
     }
+
 
     public function invoice(Request  $request)
     {

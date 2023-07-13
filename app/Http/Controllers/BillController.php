@@ -6,6 +6,7 @@ use App\Models\big;
 use App\Models\bo;
 use App\Models\data;
 use App\Models\deposit;
+use App\Models\easy;
 use App\Models\profit;
 use App\Models\server;
 use App\Models\setting;
@@ -33,6 +34,8 @@ class BillController extends Controller
                 $product = big::where('id', $request->productid)->first();
             } elseif ($serve->name == 'mcd') {
                 $product = data::where('id', $request->productid)->first();
+            }elseif ($serve->name == 'easyaccess') {
+                $product = easy::where('id', $request->productid)->first();
             }
 
             if ($user->apikey == '') {
@@ -75,10 +78,31 @@ class BillController extends Controller
 
                 $object = json_decode($product);
                 $object->number = $request->number;
+                $object->refid=$request->id;
                 $json = json_encode($object);
 
                 $daterserver = new DataserverController();
                 $mcd = server::where('status', "1")->first();
+
+                $success = "1";
+                $po = $amount - $product->amount;
+
+                $bo = bo::create([
+                    'username' => $user->username,
+                    'plan' => $product->network . '|' . $product->plan,
+                    'amount' => $request->amount,
+                    'server_res' => 'response',
+                    'result' => $success,
+                    'phone' => $request->number,
+                    'refid' => $request->id,
+//                    'balance'=>$gt,
+                ]);
+
+                $profit = profit::create([
+                    'username' => $user->username,
+                    'plan' => $product->network . '|' . $product->plan,
+                    'amount' => $po,
+                ]);
 
                 if ($mcd->name == "honorworld") {
                     $response = $daterserver->honourwordbill($object);
@@ -89,25 +113,6 @@ class BillController extends Controller
                         $success = 1;
                         $ms = $data['message'];
 
-//                    echo $success;
-
-                        $po = $amount - $product->amount;
-
-                        $bo = bo::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $request->amount,
-                            'server_res' => $response,
-                            'result' => $success,
-                            'phone' => $request->number,
-                            'refid' => $request->id,
-                        ]);
-
-                        $profit = profit::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $po,
-                        ]);
 
                         $name = $product->plan;
                         $am = "$product->plan  was successful delivered to";
@@ -115,8 +120,7 @@ class BillController extends Controller
 
 
                         $receiver = $user->email;
-                        $admin = 'admin@primedata.com.ng';
-                        $admin2 = 'primedata18@gmail.com';
+                        $admin = 'info@protocolcheapdata.com.ng';
 
 //                        Mail::to($receiver)->send(new Emailtrans($bo));
 //                        Mail::to($admin)->send(new Emailtrans($bo));
@@ -146,38 +150,16 @@ class BillController extends Controller
 
                     if ($data['success']==1) {
 
-//                    echo $success;
-                        $success = "1";
-                        $po = $amount - $product->amount;
-
-                        $bo = bo::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $request->amount,
-                            'server_res' => $response,
-                            'result' => $success,
-                            'phone' => $request->number,
-                            'refid' => $request->id,
-                        ]);
-
-                        $profit = profit::create([
-                            'username' => $user->username,
-                            'plan' => $product->network . '|' . $product->plan,
-                            'amount' => $po,
-                        ]);
-
                         $name = $product->plan;
                         $am = "$product->plan  was successful delivered to";
                         $ph = $request->number;
 
 
                         $receiver = $user->email;
-                        $admin = 'admin@primedata.com.ng';
-                        $admin2 = 'primedata18@gmail.com';
+                        $admin = 'info@protocolcheapdata.com.ng';
 
-//                        Mail::to($receiver)->send(new Emailtrans($bo));
-//                        Mail::to($admin)->send(new Emailtrans($bo));
-//                        Mail::to($admin2)->send(new Emailtrans($bo));
+                        Mail::to($receiver)->send(new Emailtrans($bo));
+                        Mail::to($admin)->send(new Emailtrans($bo));
 
                         Alert::success('Success', $am.' '.$ph);
 
@@ -196,7 +178,43 @@ class BillController extends Controller
                         return redirect(route('select'));
                     }
 
-                }
+                }elseif ($mcd->name == "easyaccess"){
+                    $response = $daterserver->easyaccess($object);
+
+                    $data = json_decode($response, true);
+//                    return $data;
+                    if ($data['success']=='true') {
+
+                        $name = $product->plan;
+                        $am = "$product->plan  was successful delivered to";
+                        $ph = $request->number;
+
+
+                        $receiver = $user->email;
+                        $admin = 'info@protocolcheapdata.com.ng';
+
+                        Mail::to($receiver)->send(new Emailtrans($bo));
+                        Mail::to($admin)->send(new Emailtrans($bo));
+
+                        Alert::success('Success', $am.' '.$ph);
+
+                        return redirect(route('select'));
+                    }elseif ($data['success']=='false'){
+                        $zo = $wallet->balance + $request->amount;
+                        $wallet->balance = $zo;
+                        $wallet->save();
+
+                        $name = $product->plan;
+                        $am = "NGN $request->amount Was Refunded To Your Wallet";
+                        $ph = ", Transaction fail";
+                        Alert::error('Error', $am.' '.$ph);
+
+
+                        return redirect(route('dashboard'));
+                    }
+
+
+                    }
 
 
 //return $response;

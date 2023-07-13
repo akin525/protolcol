@@ -61,7 +61,7 @@ public function dashboard(Request $request)
             $lock += (int)$bill1->discountamoun;
 
         }
-        $resellerURL = 'https://app.mcd.5starcompany.com.ng/api/reseller/';
+        $resellerURL = 'https://integration.mcd.5starcompany.com.ng/api/reseller/';
 
         $curl = curl_init();
 
@@ -78,7 +78,7 @@ public function dashboard(Request $request)
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array('service' => 'balance'),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
             ),
         ));
 
@@ -91,17 +91,43 @@ public function dashboard(Request $request)
         $tran = $data["data"]["wallet"];
         $pa = $data["data"]["commission"];
 
+
+
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://easyaccess.com.ng/api/wallet_balance.php",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "AuthorizationToken: f406941e6452ea82e823b7cfad3096e3", //replace this with your authorization_token
+                "cache-control: no-cache"
+            ),
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+//        echo $response;
+//        return $pa;
+
+        $data = json_decode($response, true);
+        $success = $data["success"];
+        $ba=$data['balance'];
+//        return $ba;
         $today = Carbon::now()->format('Y-m-d');
 
 
-        $data['bill'] = bo::where([['result', '=', '1'], ['date', 'LIKE', $today . '%']])->count();
-        $data['deposit'] = deposit::where([['status', '=', '1'], ['date', 'LIKE', $today . '%']])->count();
+        $data['bill'] = bo::where([['result', '=', '1'], ['created_at', 'LIKE', $today . '%']])->count();
+        $data['deposit'] = deposit::where([['status', '=', '1'], ['created_at', 'LIKE', $today . '%']])->count();
         $data['user'] = User::where([['created_at', 'LIKE', $today . '%']])->count();
         $data['nou'] = wallet::where([['updated_at', 'LIKE', $today . '%']])->count();
-        $data['sum_deposits'] = deposit::where([['date', 'LIKE', '%' . $today . '%']])->sum('amount');
-        $data['sum_bill'] = bo::where([['date', 'LIKE', '%' . $today . '%']])->sum('amount');
+        $data['sum_deposits'] = deposit::where([['created_at', 'LIKE', '%' . $today . '%']])->sum('amount');
+        $data['sum_bill'] = bo::where([['created_at', 'LIKE', '%' . $today . '%']])->sum('amount');
 
-        return view('admin/dashboard', compact('user', 'wallet', 'data', 'lock', 'totalcharge',  'tran', 'alluser', 'totaldeposite', 'totalwallet', 'deposite', 'me', 'bil2', 'bill', 'totalrefer', 'totalprofit',  'count'));
+        return view('admin/dashboard', compact('user', 'ba',  'wallet', 'data', 'lock', 'totalcharge',  'tran', 'alluser', 'totaldeposite', 'totalwallet', 'deposite', 'me', 'bil2', 'bill', 'totalrefer', 'totalprofit',  'count'));
 
     }
     return redirect("admin/login")->with('status', 'You are not allowed to access');
@@ -129,7 +155,7 @@ public function mcdtran()
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array('service' => 'transactions'),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: mcd_key_tGSkWHl5fJZsJev5FRyB5hT1HutlCa'
+                'Authorization: MCD_KEY_567897668ED675R6T7YIOVG6IO4'
             ),
         ));
 
