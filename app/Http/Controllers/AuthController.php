@@ -169,6 +169,13 @@ $passed=$request->password;
             return  view('dashboard', compact('user', 'wallet', 'greet', 'serve', 'wallet2', 'totaldeposite', 'me',  'bil2', 'bill', 'totalrefer', 'count'));
 
     }
+    function netwplanrequest(Request $request, $selectedValue)
+    {
+        $options = data::where('network', $selectedValue)->get();
+        return response()->json($options);
+
+    }
+
     public function refer(Request $request)
     {
 
@@ -207,51 +214,48 @@ $passed=$request->password;
 
             return view('select1', compact('user', 'serve'));
          }
-    public function buydata(Request  $request)
+    public function buydata(Request  $request, $selectedValue)
     {
-        $request->validate([
-            'id' => 'required',
-        ]);
+
         $serve = server::where('status', '1')->first();
 
         if ($serve->name == 'mcd') {
             $user = User::find($request->user()->id);
-            $data = data::where(['status' => 1])->where('network', $request->id)->get();
+            $data = data::where(['status' => 1])->where('network', $selectedValue)->get();
 
 
-            return view('buydata', compact('user', 'data'));
+            return response()->json($data);
         } elseif ($serve->name == 'honorworld') {
             $user = User::find($request->user()->id);
-            $data= big::where('status', '1')->where('network', $request->id)->get();
+            $data= big::where('status', '1')->where('network', $selectedValue)->get();
 //return $data;
-            return view('buydata', compact('user', 'data'));
+            return response()->json($data);
 
         }elseif ($serve->name == 'easyaccess'){
             $user = User::find($request->user()->id);
-            $data= easy::where('status', '1')->where('network', $request->id)->get();
-            return view('buydata', compact('user', 'data'));
+            $data= easy::where('status', '1')->where('network', $selectedValue)->get();
+            return response()->json($data);
+
         }
        }
-    public function redata(Request  $request)
+    public function redata(Request  $request, $selectedValue)
     {
 
-        $request->validate([
-            'id' => 'required',
-        ]);
+
         $daterserver = new DataserverController();
         $serve = server::where('status', '1')->first();
 //return $request->id;
         if ($serve->name == 'mcd') {
             $user = User::find($request->user()->id);
-            $data = data::where(['status' => 1])->where('network', $request->id)->get();
+            $data = data::where(['status' => 1])->where('network', $selectedValue)->get();
 
-//return $data;
-            return view('redata', compact('user', 'data'));
+            return response()->json($data);
+
         } elseif ($serve->name == 'honorworld') {
             $user = User::find($request->user()->id);
-            $data= big::where('status', '1')->where('network', $request->id)->get();
-//return $data;
-            return view('redata', compact('user', 'data'));
+            $data= big::where('status', '1')->where('network', $selectedValue)->get();
+            return response()->json($data);
+
 
         }
        }
@@ -264,7 +268,7 @@ $passed=$request->password;
         ]);
         if(Auth::check()){
             $user = User::find($request->user()->id);
-            $data = data::where('id',$request->id )->get();
+            $data = data::where('id',$request )->get();
 
             return view('pre', compact('user', 'data'));
         }

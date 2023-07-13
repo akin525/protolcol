@@ -428,6 +428,190 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+
+
+        // Send the AJAX request
+        $('#dataForm').submit(function(e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
+
+            // Get the form data
+            var formData = $(this).serialize();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you want to buy airtime of ₦' + document.getElementById("amount").value + ' on ' + document.getElementById("number").value +' ?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // The user clicked "Yes", proceed with the action
+                    // Add your jQuery code here
+                    // For example, perform an AJAX request or update the page content
+                    $('#loadingSpinner').show();
+
+                    $.ajax({
+                        url: "{{ route('buyairtime1') }}",
+                        type: 'POST',
+                        data: formData,
+                        success: function(response) {
+                            // Handle the success response here
+                            $('#loadingSpinner').hide();
+
+                            console.log(response);
+                            // Update the page or perform any other actions based on the response
+
+                            if (response.status == 'success') {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: response.message
+                                }).then(() => {
+                                    location.reload(); // Reload the page
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'info',
+                                    title: 'Pending',
+                                    text: response.message
+                                });
+                                // Handle any other response status
+                            }
+
+                        },
+                        error: function(xhr) {
+                            $('#loadingSpinner').hide();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'fail',
+                                text: xhr.responseText
+                            });
+                            // Handle any errors
+                            console.log(xhr.responseText);
+
+                        }
+                    });
+
+                }
+            });
+        });
+    });
+
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#firstSelect').change(function() {
+            var selectedValue = $(this).val();
+            // Show the loading spinner
+            $('#loadingSpinner1').show();
+            // Send the selected value to the '/getOptions' route
+            $.ajax({
+                url: '{{ url('redata') }}/' + selectedValue,
+                type: 'GET',
+                success: function(response) {
+                    // Handle the successful response
+                    var secondSelect = $('#secondSelect');
+                    $('#loadingSpinner1').hide();
+                    // Clear the existing options
+                    secondSelect.empty();
+
+                    // Append the received options to the second select box
+                    $.each(response, function(index, option) {
+                        secondSelect.append('<option  value="' + option.id + '">' + option.plan +  ' --₦' + option.ramount + '</option>');
+                    });
+
+                    // Select the desired value dynamically
+                    var desiredValue = 'value2'; // Set the desired value here
+                    secondSelect.val(desiredValue);
+                },
+                error: function(xhr) {
+                    // Handle any errors
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    });
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('#dataForm1').submit(function(e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
+            // Get the form data
+            var formData = $(this).serialize();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you want to buy ' + document.getElementById("secondSelect").options[document.getElementById("secondSelect").selectedIndex].text + ' on ' + document.getElementById("number1").value + '?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // The user clicked "Yes", proceed with the action
+                    // Add your jQuery code here
+                    // For example, perform an AJAX request or update the page content
+                    $('#loadingSpinner1').show();
+                    $.ajax({
+                        url: "{{ route('bill') }}",
+                        type: 'POST',
+                        data: formData,
+                        success: function(response) {
+                            // Handle the success response here
+                            $('#loadingSpinner1').hide();
+
+                            console.log(response);
+                            // Update the page or perform any other actions based on the response
+
+                            if (response.status == 'success') {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: response.message
+                                }).then(() => {
+                                    location.reload(); // Reload the page
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'info',
+                                    title: 'Pending',
+                                    text: response.message
+                                });
+                                // Handle any other response status
+                            }
+
+                        },
+                        error: function(xhr) {
+                            $('#loadingSpinner1').hide();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'fail',
+                                text: xhr.responseText
+                            });
+                            // Handle any errors
+                            console.log(xhr.responseText);
+
+                        }
+                    });
+
+
+                }
+            });
+
+
+            // Send the AJAX request
+        });
+    });
+
+</script>
+
 <!-- DATA TABLE JS-->
 <script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap5.js')}}"></script>

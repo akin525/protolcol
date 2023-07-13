@@ -81,15 +81,19 @@ Route::post('buyairtime', [AirtimeController::class, 'airtime'])->name('buyairti
 Route::post('buyairtime1', [AirtimeController::class, 'honor'])->name('buyairtime1');
 //Route::get('airtime1', [AuthController::class, 'airtime'])->name('airtime1');
 Route::get('airtime', [AuthController::class, 'airtime'])->name('airtime');
-Route::post('buydata', [AuthController::class, 'buydata'])->name('buydata');
-Route::post('redata', [AuthController::class, 'redata'])->name('redata');
-Route::post('pre', [AuthController::class, 'pre'])->name('pre');
+    Route::get('buydata/{selectedValue}', [AuthController::class, 'buydata'])->name('buydata');
+    Route::get('redata/{selectedValue}', [AuthController::class, 'redata'])->name('redata');
+    Route::get('getOptions/{selectedValue}', [AuthController::class, 'netwplanrequest'])->name('getOptions');
+
+    Route::post('pre', [AuthController::class, 'pre'])->name('pre');
 Route::post('bill', [BillController::class, 'bill'])->name('bill');
 Route::get('referwith', [RefersController::class, 'index'])->name('referwith');
 Route::post('referwith1', [RefersController::class, 'with'])->name('referwith1');
 Route::get('fund', [FundController::class, 'fund'])->name('fund');
 Route::get('tran/{reference}', [FundController::class, 'tran'])->name('tran');
 Route::get('vertual', [VertualController::class, 'vertual'])->name('vertual');
+
+
 });
 
 
