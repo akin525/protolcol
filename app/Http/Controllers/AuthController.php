@@ -119,10 +119,12 @@ $passed=$request->password;
     }
     public function dashboard(Request $request)
     {
+        $serve = server::where('status', '1')->first();
 
             $user = User::find($request->user()->id);
             $me = Messages::where('status', 1)->first();
             $refer = refer::where('username', $request->user()->username)->get();
+
             $totalrefer = 0;
             foreach ($refer as $de){
                 $totalrefer += $de->amount;
@@ -131,6 +133,7 @@ $passed=$request->password;
             $count = refer::where('username',$request->user()->username)->count();
 
             $wallet = wallet::where('username', $user->username)->get();
+            $wallet2 = wallet::where('username', $user->username)->first();
             $deposite = deposit::where('username', $request->user()->username)->get();
             $totaldeposite = 0;
             foreach ($deposite as $depo){
@@ -163,7 +166,7 @@ $passed=$request->password;
                     if ($time >= "19") {
                         $greet="Good night";
                     }
-            return  view('dashboard', compact('user', 'wallet', 'greet', 'totaldeposite', 'me',  'bil2', 'bill', 'totalrefer', 'count'));
+            return  view('dashboard', compact('user', 'wallet', 'greet', 'serve', 'wallet2', 'totaldeposite', 'me',  'bil2', 'bill', 'totalrefer', 'count'));
 
     }
     public function refer(Request $request)

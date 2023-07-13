@@ -28,6 +28,7 @@ class bo extends Authenticatable
         'discountamoun',
         'token',
         'balance',
+        'fbalance',
     ];
 
 

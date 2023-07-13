@@ -8,6 +8,7 @@ use App\Models\data;
 use App\Models\User;
 use App\Models\wallet;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -26,32 +27,42 @@ class AirtimeController
 
             if ($wallet->balance < $request->amount) {
                 $mg = "You Cant Make Purchase Above" . "NGN" . $request->amount . " from your wallet. Your wallet balance is NGN $wallet->balance. Please Fund Wallet And Retry or Pay Online Using Our Alternative Payment Methods.";
-                Alert::error('Insufficient Fund', $mg);
-                return back();
+               return response()->json($mg, Response:: HTTP_BAD_REQUEST);
 
             }
             if ($request->amount < 0) {
 
                 $mg = "error transaction";
-                Alert::warning('Warning', $mg);
-                return back();
+                return response()->json($mg, Response:: HTTP_BAD_REQUEST);
 
             }
             $bo = bo::where('refid', $request->refid)->first();
             if (isset($bo)) {
                 $mg = "duplicate transaction";
-                Alert::error($mg);
-                return back();
+                return response()->json($mg, Response:: HTTP_CONFLICT);
+
 
             } else {
-
-
+                $fbalance=$wallet->balance;
                 $gt = $wallet->balance - $request->amount;
 
 
                 $wallet->balance = $gt;
                 $wallet->save();
 
+                $bo = bo::create([
+                    'username' => $user->username,
+                    'plan' => 'Airtime',
+                    'amount' => $request->amount,
+                    'server_res' => 'waiting',
+                    'result' => '0',
+                    'phone' => $request->number,
+                    'refid' => $request->refid,
+                    'discountamoun' => '0',
+                    'fbalance'=>$fbalance,
+                    'balance'=>$gt,
+
+                ]);
 
                 $resellerURL = 'https://integration.mcd.5starcompany.com.ng/api/reseller/';
                 $curl = curl_init();
@@ -85,20 +96,11 @@ class AirtimeController
                 if ($success == 1) {
                     $tran1 = $data["discountAmount"];
 
-                    $bo = bo::create([
-                        'username' => $user->username,
-                        'plan' => 'Airtime',
-                        'amount' => $request->amount,
-                        'server_res' => $response,
-                        'result' => $success,
-                        'phone' => $request->number,
-                        'refid' => $request->refid,
+                    $update=bo::where('id', $bo->id)->update([
+                        'server_res'=>$response,
                         'discountamoun' => $tran1,
-                        'balance'=>$gt,
-
+                        'result'=>1,
                     ]);
-
-
 //                    $name = $bt->plan;
                     $am = "NGN $request->amount  Airtime Purchase Was Successful To";
                     $ph = $request->number;
@@ -109,19 +111,23 @@ class AirtimeController
                     Mail::to($receiver)->send(new Emailtrans($bo));
                     Mail::to($admin)->send(new Emailtrans($bo));
 
-                    Alert::success('Success', $am.''.$ph);
-                    return back();
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => $am.' ' .$ph,
+                    ]);
 
                 } elseif ($success == 0) {
-                    $zo = $wallet->balance + $request->amount;
-                    $wallet->balance = $zo;
-                    $wallet->save();
+//                    $zo = $wallet->balance + $request->amount;
+//                    $wallet->balance = $zo;
+//                    $wallet->save();
 
 //                    $name = $bt->plan;
                     $am = "NGN $request->amount Was Refunded To Your Wallet";
                     $ph = ", Transaction fail";
-Alert::error('Fail', $am. ''.$ph);
-                    return redirect('airtime');
+                    return response()->json([
+                        'status' => 'fail',
+                        'message' => $response,
+                    ]);
 
                 }
         }
