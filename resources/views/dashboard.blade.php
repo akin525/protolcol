@@ -1,6 +1,4 @@
 @include('layouts.sidebar')
-
-
 <script>
     function myCallback(data) {
         console.log("I am in callback")
@@ -27,7 +25,6 @@
 
 
 </script>
-
 <!--app-content open-->
 <div class="app-content main-content mt-0">
     <div class="side-app">
@@ -62,10 +59,8 @@
                             <div class="any-card">
                                 <div class="c-con">
                                     <h4 class="heading mb-0">{{$greet}} <strong>{{Auth::user()->username}}!!</strong><img  src="#" alt=""></h4>
-                                    {{--                                <span>Best seller of the week</span>--}}
-                                    {{--                                <p class="mt-3">{{$me->message}}</p>--}}
 
-                                    <h6>Your Referal Link</h6>
+                               <h6>Your Referal Link</h6>
                                     <!-- The text field -->
                                     <input id="myInput" type="text" class="form-control" value="https://protocolcheapdata.com.ng/register?refer={{$user->username}}" >
 
@@ -455,7 +450,7 @@
                     $('#loadingSpinner').show();
 
                     $.ajax({
-                        url: "{{ route('buyairtime1') }}",
+                        url: "{{ route('buyairtime') }}",
                         type: 'POST',
                         data: formData,
                         success: function(response) {

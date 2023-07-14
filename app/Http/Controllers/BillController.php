@@ -12,6 +12,7 @@ use App\Models\server;
 use App\Models\setting;
 use App\Models\wallet;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 use Session;
@@ -46,28 +47,27 @@ class BillController extends Controller
 
             if ($wallet->balance < $amount) {
                 $mg = "You Cant Make Purchase Above" . "NGN" . $amount . " from your wallet. Your wallet balance is NGN $wallet->balance. Please Fund Wallet And Retry or Pay Online Using Our Alternative Payment Methods.";
-                Alert::error('Insufficient Balance', $mg);
-
-                return redirect(route('dashboard'));
+             return response()->json($mg, Response::HTTP_BAD_REQUEST);
 
             }
             if ($request->amount < 0) {
 
                 $mg = "error transaction";
-                Alert::error('Error', $mg);
-                return redirect(route('dashboard'));
+                return response()->json($mg, Response::HTTP_BAD_REQUEST);
+
 
             }
             $bo = bo::where('refid', $request->id)->first();
             if (isset($bo)) {
                 $mg = "duplicate transaction";
-                Alert::error('Error', $mg);
-                return redirect(route('dashboard'));
+                return response()->json($mg, Response::HTTP_CONFLICT);
+
 
             } else {
                 $user = User::find($request->user()->id);
 //                $bt = data::where("id", $request->productid)->first();
                 $wallet = wallet::where('username', $user->username)->first();
+                $fbalance=$wallet->balance;
 
 
                 $gt = $wallet->balance - $request->amount;
@@ -84,7 +84,7 @@ class BillController extends Controller
                 $daterserver = new DataserverController();
                 $mcd = server::where('status', "1")->first();
 
-                $success = "1";
+                $success = "0";
                 $po = $amount - $product->amount;
 
                 $bo = bo::create([
@@ -95,7 +95,8 @@ class BillController extends Controller
                     'result' => $success,
                     'phone' => $request->number,
                     'refid' => $request->id,
-//                    'balance'=>$gt,
+                    'fbalance'=>$fbalance,
+                    'balance'=>$gt,
                 ]);
 
                 $profit = profit::create([
@@ -149,7 +150,11 @@ class BillController extends Controller
                     $data = json_decode($response, true);
 
                     if ($data['success']==1) {
-
+                        $update=bo::where('id', $bo->id)->update([
+                            'server_res'=>$response,
+                            'discountamoun' => $po,
+                            'result'=>1,
+                        ]);
                         $name = $product->plan;
                         $am = "$product->plan  was successful delivered to";
                         $ph = $request->number;
@@ -160,22 +165,27 @@ class BillController extends Controller
 
                         Mail::to($receiver)->send(new Emailtrans($bo));
                         Mail::to($admin)->send(new Emailtrans($bo));
+                        return response()->json([
+                            'status' => 'success',
+                            'message' => $am.' ' .$ph,
+                        ]);
 
-                        Alert::success('Success', $am.' '.$ph);
-
-                        return redirect(route('select'));
 
                     }elseif ($data['success']==0) {
-                        $success = 0;
-                        $zo = $wallet->balance + $request->amount;
-                        $wallet->balance = $zo;
-                        $wallet->save();
+                        $update=bo::where('id', $bo->id)->update([
+                            'server_res'=>$response,
+                            'discountamoun' => $po,
+                            'result'=>0,
+                        ]);
 
                         $name = $product->plan;
-                        $am = "NGN $request->amount Was Refunded To Your Wallet";
+                        $am = "contact admin";
                         $ph = ", Transaction fail";
-                        Alert::error('Error', $am.' '.$ph);
-                        return redirect(route('select'));
+                        return response()->json([
+                            'status' => 'fail',
+                            'message' => $am.' ' .$ph,
+
+                        ]);
                     }
 
                 }elseif ($mcd->name == "easyaccess"){
@@ -189,28 +199,33 @@ class BillController extends Controller
                         $am = "$product->plan  was successful delivered to";
                         $ph = $request->number;
 
-
+                        $update=bo::where('id', $bo->id)->update([
+                            'server_res'=>$response,
+                            'discountamoun' => $po,
+                            'result'=>1,
+                        ]);
                         $receiver = $user->email;
                         $admin = 'info@protocolcheapdata.com.ng';
 
                         Mail::to($receiver)->send(new Emailtrans($bo));
                         Mail::to($admin)->send(new Emailtrans($bo));
 
-                        Alert::success('Success', $am.' '.$ph);
-
-                        return redirect(route('select'));
+                        return response()->json([
+                            'status' => 'success',
+                            'message' => $am.' ' .$ph,
+                        ]);
                     }elseif ($data['success']=='false'){
-                        $zo = $wallet->balance + $request->amount;
-                        $wallet->balance = $zo;
-                        $wallet->save();
+//                        $zo = $wallet->balance + $request->amount;
+//                        $wallet->balance = $zo;
+//                        $wallet->save();
 
                         $name = $product->plan;
-                        $am = "NGN $request->amount Was Refunded To Your Wallet";
+                        $am = "contact admin";
                         $ph = ", Transaction fail";
-                        Alert::error('Error', $am.' '.$ph);
-
-
-                        return redirect(route('dashboard'));
+                        return response()->json([
+                            'status' => 'fail',
+                            'message' => $am.' ' .$ph,
+                        ]);
                     }
 
 

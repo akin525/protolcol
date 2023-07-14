@@ -283,19 +283,20 @@ $passed=$request->password;
         }else{
             $se=0;
         }
-        if ($se == 'MCD') {
+        if ($se == 0) {
+
+            Alert::info('Server', 'Out of service, come back later');
+            return redirect('dashboard');
+
+        }
             $user = User::find($request->user()->id);
             $data = data::where('plan_id', "airtime")->get();
             $wallet = wallet::where('username', $user->username)->first();
 
-            return view('airtime', compact('user', 'data', 'wallet'));
-        } elseif ($se == 'Honor'){
-            return view('airtime1');
 
-        }else {
-            Alert::info('Server', 'Out of service, come back later');
-            return redirect('dashboard');
-        }
+            return view('airtime1', compact('user', 'data', 'wallet'));
+
+
     }
 
 
