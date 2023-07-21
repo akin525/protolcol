@@ -90,7 +90,7 @@ class BillController extends Controller
                 $bo = bo::create([
                     'username' => $user->username,
                     'plan' => $product->network . '|' . $product->plan,
-                    'amount' => $request->amount,
+                    'amount' => $amount,
                     'server_res' => 'response',
                     'result' => $success,
                     'phone' => $request->number,
