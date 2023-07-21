@@ -70,7 +70,7 @@ class BillController extends Controller
                 $fbalance=$wallet->balance;
 
 
-                $gt = $wallet->balance - $request->amount;
+                $gt = $wallet->balance - $amount;
 
 
                 $wallet->balance = $gt;
