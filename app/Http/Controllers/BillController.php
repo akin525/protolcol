@@ -57,7 +57,7 @@ class BillController extends Controller
 
 
             }
-            $bo = bo::where('refid', $request->id)->first();
+            $bo = bo::where('refid', $request->refid)->first();
             if (isset($bo)) {
                 $mg = "duplicate transaction";
                 return response()->json($mg, Response::HTTP_CONFLICT);
