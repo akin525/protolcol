@@ -50,7 +50,7 @@ class BillController extends Controller
              return response()->json($mg, Response::HTTP_BAD_REQUEST);
 
             }
-            if ($request->amount < 0) {
+            if ($amount < 0) {
 
                 $mg = "error transaction";
                 return response()->json($mg, Response::HTTP_BAD_REQUEST);
